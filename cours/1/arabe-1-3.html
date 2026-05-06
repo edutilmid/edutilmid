@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>تعلم القراءة | الحركات القصيرة للمقاطع والكلمات | تمارين أم وطفل</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fcf8e8;
+            font-family: 'Segoe UI', 'Cairo', 'Amiri', 'Traditional Arabic', 'Noto Naskh Arabic', sans-serif;
+            padding: 25px 20px;
+            color: #1e2f2c;
+        }
+
+        .page {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 64px 48px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        /* الرأس */
+        .header {
+            background: #2c7a5e;
+            padding: 30px 24px;
+            text-align: center;
+            color: white;
+        }
+        .header h1 {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .header h1 span {
+            background: #f4b942;
+            padding: 4px 18px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+        }
+        .badge-group {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 15px;
+        }
+        .badge {
+            background: #fae7bc;
+            border-radius: 40px;
+            padding: 5px 20px;
+            font-weight: bold;
+            color: #2c7a5e;
+        }
+        .note {
+            background: #e9f4ef;
+            border-radius: 28px;
+            padding: 10px;
+            margin: 20px 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* أقسام */
+        .section {
+            margin: 35px 25px;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c7a5e;
+            border-right: 8px solid #f4b942;
+            padding-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* الجدول الرئيسي */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 32px;
+            border: 1px solid #e2dccd;
+        }
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 1rem;
+        }
+        .main-table th {
+            background: #f2e9d0;
+            padding: 14px 8px;
+            font-size: 1.1rem;
+            color: #2a5a4a;
+        }
+        .main-table td {
+            border: 1px solid #e7dbbd;
+            padding: 12px 6px;
+            background: white;
+        }
+        .haraka-example {
+            font-family: 'Amiri', monospace;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: #fef5e3;
+            border-radius: 24px;
+            padding: 5px;
+        }
+        .word-cell {
+            font-weight: bold;
+            color: #bc6f2c;
+            font-size: 1.2rem;
+        }
+        .phon-grad {
+            color: #1e6b56;
+        }
+
+        /* الجمل القصيرة */
+        .sentences-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            background: #fef8e7;
+            padding: 20px;
+            border-radius: 48px;
+        }
+        .sentence-card {
+            background: white;
+            border-radius: 40px;
+            padding: 15px 25px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+            border: 1px solid #ffdd99;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-align: center;
+            min-width: 160px;
+        }
+
+        /* تمارين تفاعلية */
+        .exercise-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .exercise-card {
+            background: #fffcf0;
+            border-radius: 48px;
+            padding: 20px 25px;
+            border: 2px solid #fee2b5;
+        }
+        .exercise-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #bc6f2c;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .mother-instruction {
+            background: #e6f2ee;
+            border-radius: 28px;
+            padding: 10px 18px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            border-right: 5px solid #2c7a5e;
+        }
+
+        /* تمرين التوصيل */
+        .match-words {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .match-item {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            background: #fdf9ef;
+            padding: 12px;
+            border-radius: 60px;
+        }
+        .incomplete-word {
+            font-size: 1.8rem;
+            font-family: 'Amiri', monospace;
+            background: white;
+            padding: 5px 20px;
+            border-radius: 50px;
+            border: 2px dotted #f4b942;
+            min-width: 150px;
+            text-align: center;
+        }
+        .char-slot {
+            display: inline-block;
+            width: 45px;
+            text-align: center;
+            font-weight: bold;
+            background: #ffe1a0;
+            border-radius: 20px;
+        }
+        .haraka-choices {
+            display: flex;
+            gap: 12px;
+        }
+        .haraka-btn {
+            background: white;
+            border: 2px solid #e6bf7e;
+            padding: 5px 18px;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: monospace;
+        }
+        .match-feedback {
+            font-size: 0.9rem;
+            color: #7a5a3a;
+        }
+
+        /* تمرين القراءة الجهرية (نجمة) */
+        .reading-words {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .reading-card {
+            background: white;
+            border-radius: 48px;
+            padding: 15px 20px;
+            text-align: center;
+            width: 160px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border: 1px solid #ffda99;
+        }
+        .word-to-read {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-family: 'Amiri', monospace;
+        }
+        .star-btn {
+            background: #f4b942;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 40px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+        .star-mark {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #e67e22;
+        }
+
+        /* تمرين الإملاء المنظور */
+        .dictation-area {
+            background: #fff8e5;
+            border-radius: 44px;
+            padding: 20px;
+        }
+        .word-list-for-dictation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .dict-item {
+            background: #fdeaaf;
+            border-radius: 40px;
+            padding: 12px 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .writing-box {
+            background: white;
+            border-radius: 40px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .writing-field {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+        .writing-field input {
+            flex: 1;
+            padding: 12px;
+            font-size: 1.3rem;
+            font-family: 'Amiri', monospace;
+            border-radius: 40px;
+            border: 2px solid #f0cf8c;
+            text-align: center;
+        }
+        .mother-check-btn {
+            background: #2c7a5e;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            padding: 8px 20px;
+            cursor: pointer;
+        }
+        .dict-feedback {
+            background: #f8ebcd;
+            border-radius: 32px;
+            padding: 10px;
+            margin-top: 12px;
+        }
+
+        button {
+            font-family: inherit;
+        }
+        footer {
+            background: #e5dfce;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+        }
+        @media (max-width: 700px) {
+            .main-table td, .main-table th { font-size: 0.8rem; padding: 6px; }
+            .haraka-example { font-size: 1.2rem; }
+            .word-cell { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="header">
+        <h1>
+            📖 أتعلم القراءة بالحركات القصيرة
+            <span>فتحة · ضمة · كسرة</span>
+        </h1>
+        <div class="badge-group">
+            <div class="badge">◌َ  فتحة (أَ)</div>
+            <div class="badge">◌ُ  ضمة (أُ)</div>
+            <div class="badge">◌ِ  كسرة (إِ)</div>
+        </div>
+        <div class="note">⭐ المقاطع الصوتية الخالية من المدود هي أساس القراءة الصحيحة ⭐</div>
+    </div>
+
+    <!-- 1. الجدول الشامل للحروف والمقاطع والكلمات -->
+    <div class="section">
+        <div class="section-title">📋 جدول الحروف مع الحركات والكلمات</div>
+        <div class="table-wrapper">
+            <table class="main-table">
+                <thead>
+                    <tr><th>الحرف</th><th>مقطع بالفتحة (ــَ)</th><th>كلمة بالفتحة</th><th>مقطع بالضمة (ــُ)</th><th>كلمة بالضمة</th><th>مقطع بالكسرة (ــِ)</th><th>كلمة بالكسرة</th></tr>
+                </thead>
+                <tbody id="lettersTableBody">
+                    <!-- سيتم تعبئة الجدول بواسطة JS وفق الكلمات المطلوبة -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 2. الجمل القصيرة المشكلة -->
+    <div class="section">
+        <div class="section-title">📖 جمل قصيرة (مشكلة بالكامل)</div>
+        <div class="sentences-grid" id="sentencesList"></div>
+    </div>
+
+    <!-- 3. تمارين تفاعلية (زاوية الأم والطفل) -->
+    <div class="section">
+        <div class="section-title">🧸 زاوية الأم والطفل · تمارين يدوية</div>
+        <div class="exercise-container">
+            <!-- تمرين التوصيل: اختيار الحركة -->
+            <div class="exercise-card">
+                <div class="exercise-title">🔗 التمرين الأول: توصيل الحركة الصحيحة</div>
+                <div class="mother-instruction">👩‍👧 توجيه للأم: الكلمات ناقصة الحركة، اطلبي من طفلك أن يختار الحركة المناسبة (فتحة، ضمة، كسرة) ثم قومي بتصحيحه يدوياً. الصفحة لا تصحح آلياً.</div>
+                <div id="matchExercise" class="match-words"></div>
+            </div>
+
+            <!-- تمرين القراءة الجهرية مع النجمة -->
+            <div class="exercise-card">
+                <div class="exercise-title">⭐ التمرين الثاني: أقرأ ثم أضع نجمة</div>
+                <div class="mother-instruction">🗣️ الأم: يقرأ الطفل الكلمات المشكلة أمامك. عندما يقرأ كلمة بشكل صحيح، اضغط على زر النجمة لتكريمه.</div>
+                <div id="readingExercise" class="reading-words"></div>
+            </div>
+
+            <!-- تمرين الإملاء المنظور -->
+            <div class="exercise-card">
+                <div class="exercise-title">✏️ التمرين الثالث: الإملاء المنظور</div>
+                <div class="mother-instruction">📝 الأم: أملي على طفلك الكلمة من القائمة (تنطقها بالحركات) ثم يكتبها الطفل في المربع. بعد الانتهاء، يمكنك الضغط على "مراجعة الأم" لتقييم الكتابة.</div>
+                <div class="dictation-area">
+                    <div class="word-list-for-dictation" id="dictationWordsList"></div>
+                    <div class="writing-box">
+                        <div class="writing-field">
+                            <input type="text" id="dictationInput" placeholder="اكتب الكلمة بالحركات ..." autocomplete="off">
+                            <button id="checkDictationBtn" class="mother-check-btn">📋 مراجعة الأم</button>
+                        </div>
+                        <div id="dictationFeedback" class="dict-feedback"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        تمارين يدوية داعمة | الأم هي المقيّم الأول | التدريب على الحركات القصيرة دون مدود
+    </footer>
+</div>
+
+<script>
+    // ---------------------------- البيانات الأساسية حسب المطلوب ----------------------------
+    // كامل الحروف من الألف إلى الياء مع الكلمات المحددة بدقة (بعضها مُعطى في السؤال)
+    // سنقوم ببناء مصفوفة الحروف تشمل 28 حرفاً
+    const lettersData = [
+        { letter: 'أ', fathaWord: 'أَسَد', dammaWord: 'أُذُن', kasraWord: 'إِبْرِيق' },
+        { letter: 'ب', fathaWord: 'بَطَّة', dammaWord: 'بُرْج', kasraWord: 'بِنْت' },
+        { letter: 'ت', fathaWord: 'تَمْر', dammaWord: 'تُفَّاح', kasraWord: 'تِمْسَاح' },
+        { letter: 'ث', fathaWord: 'ثَلْج', dammaWord: 'ثُعْبَان', kasraWord: 'ثِيَاب' },
+        { letter: 'ج', fathaWord: 'جَمَل', dammaWord: 'جُبُن', kasraWord: 'جِدَار' },
+        { letter: 'ح', fathaWord: 'حَلِيب', dammaWord: 'حُسَام', kasraWord: 'حِصَان' },      // حُسام كما طلب
+        { letter: 'خ', fathaWord: 'خَرُوف', dammaWord: 'خُبْز', kasraWord: 'خِيَار' },
+        { letter: 'د', fathaWord: 'دَجَاج', dammaWord: 'دُبّ', kasraWord: 'دِرْهَم' },      // دِرهم مكسوراً
+        { letter: 'ذ', fathaWord: 'ذَئِب', dammaWord: 'ذُبَابَة', kasraWord: 'ذِئْبَة' },
+        { letter: 'ر', fathaWord: 'رُمَّان', dammaWord: 'رُبَّاع', kasraWord: 'رِبْح' },    // رِبح مكسوراً
+        { letter: 'ز', fathaWord: 'زَرَافَة', dammaWord: 'زُهُور', kasraWord: 'زِفَاف' },    // زِفاف مكسوراً
+        { letter: 'س', fathaWord: 'سَمَكَة', dammaWord: 'سُلَحْفَاة', kasraWord: 'سِكِّين' },
+        { letter: 'ش', fathaWord: 'شَمْس', dammaWord: 'شُرْطِيّ', kasraWord: 'شِرَاع' },
+        { letter: 'ص', fathaWord: 'صَقْر', dammaWord: 'صُنْدُوق', kasraWord: 'صِنَارَة' },
+        { letter: 'ض', fathaWord: 'ضَوْء', dammaWord: 'ضُبَّاط', kasraWord: 'ضِرْس' },      // ضُباط مضموماً
+        { letter: 'ط', fathaWord: 'طَائِرَة', dammaWord: 'طُرُق', kasraWord: 'طِفْل' },      // طُرُق
+        { letter: 'ظ', fathaWord: 'ظَبْي', dammaWord: 'ظُفْر', kasraWord: 'ظِلّ' },
+        { letter: 'ع', fathaWord: 'عَيْن', dammaWord: 'عُصْفُور', kasraWord: 'عِنَب' },
+        { letter: 'غ', fathaWord: 'غَالَة', dammaWord: 'غُرَاب', kasraWord: 'غِطَاء' },
+        { letter: 'ف', fathaWord: 'فَرَاشَة', dammaWord: 'فُسْتَان', kasraWord: 'فِلَاحَة' }, // فِلاحة مكسوراً
+        { letter: 'ق', fathaWord: 'قَلَم', dammaWord: 'قُبَّعَة', kasraWord: 'قِطّ' },
+        { letter: 'ك', fathaWord: 'كَلْب', dammaWord: 'كُرَة', kasraWord: 'كِتَاب' },
+        { letter: 'ل', fathaWord: 'لَيْمُون', dammaWord: 'لُعْبَة', kasraWord: 'لِسَان' },
+        { letter: 'م', fathaWord: 'مَوْز', dammaWord: 'مُعَلِّم', kasraWord: 'مِقَصّ' },
+        { letter: 'ن', fathaWord: 'نَحْلَة', dammaWord: 'نُجُوم', kasraWord: 'نِسَاء' },      // نِساء مكسوراً
+        { letter: 'ه', fathaWord: 'هَرَم', dammaWord: 'هُدْهُد', kasraWord: 'هِلَال' },
+        { letter: 'و', fathaWord: 'وَلَد', dammaWord: 'وُرُود', kasraWord: 'وِسَادَة' },
+        { letter: 'ي', fathaWord: 'يَد', dammaWord: 'يُصَلِّي', kasraWord: 'يِسَار' }
+    ];
+
+    // الجمل القصيرة المشكلة (كلمتين أو ثلاث)
+    const shortSentences = [
+        "أَكَلَ أَسَدٌ", "رَسَمَ عُمَرُ", "زَرَعَ فَلَّاحٌ", "شَرِبَ حُسَامٌ", "لَعِبَ وَلَدٌ",
+        "نَامَ طِفْلٌ", "جَلَسَ ضُبَاطٌ", "قَرَأَ كِتَابًا", "غَسَلَ يَدَهُ", "رَكِبَ جَمَلًا"
+    ];
+
+    // كلمات لتمرين التوصيل (كلمات ناقصة الحركة) - (نعرض الكلمة بدون حركة الحرف الأول)
+    const matchWordsList = [
+        { wordBase: "ح_صَان", correctHaraka: "ِ", displayPrefix: "ح", fullWord: "حِصَان" },    // كسرة
+        { wordBase: "د_رْهَم", correctHaraka: "ِ", displayPrefix: "د", fullWord: "دِرْهَم" },
+        { wordBase: "ر_بْح", correctHaraka: "ِ", displayPrefix: "ر", fullWord: "رِبْح" },
+        { wordBase: "ز_فَاف", correctHaraka: "ِ", displayPrefix: "ز", fullWord: "زِفَاف" },
+        { wordBase: "ضُب_اط", correctHaraka: "ُ", displayPrefix: "ض", fullWord: "ضُبَّاط" },  // ضمة
+        { wordBase: "ط_رُق", correctHaraka: "ُ", displayPrefix: "ط", fullWord: "طُرُق" },
+        { wordBase: "فِل_حَة", correctHaraka: "ِ", displayPrefix: "ف", fullWord: "فِلَاحَة" },
+        { wordBase: "نِس_اء", correctHaraka: "ِ", displayPrefix: "ن", fullWord: "نِسَاء" }
+    ];
+
+    // كلمات تمرين القراءة الجهرية (قائمة مشكلة)
+    const readingWordsList = [
+        "أَسَد", "دِرْهَم", "حُسَام", "زِفَاف", "ضُبَّاط", "طُرُق", "فِلَاحَة", "نِسَاء", "جَمَل", "بَطَّة"
+    ];
+
+    // كلمات تمرين الإملاء المنظور (تمليها الأم)
+    const dictationWords = [
+        "أَسَد", "دِرْهَم", "رِبْح", "زِفَاف", "ضُبَّاط", "طُرُق", "فِلَاحَة", "نِسَاء", "حُسَام", "كِتَاب"
+    ];
+
+    // بناء الجدول
+    function buildTable() {
+        const tbody = document.getElementById('lettersTableBody');
+        tbody.innerHTML = '';
+        lettersData.forEach(item => {
+            const row = tbody.insertRow();
+            row.insertCell(0).innerText = item.letter;
+            // فتحة
+            row.insertCell(1).innerHTML = `<span class="haraka-example">${item.letter}َ</span>`;
+            row.insertCell(2).innerHTML = `<span class="word-cell">${item.fathaWord}</span>`;
+            // ضمة
+            row.insertCell(3).innerHTML = `<span class="haraka-example">${item.letter}ُ</span>`;
+            row.insertCell(4).innerHTML = `<span class="word-cell">${item.dammaWord}</span>`;
+            // كسرة
+            row.insertCell(5).innerHTML = `<span class="haraka-example">${item.letter}ِ</span>`;
+            row.insertCell(6).innerHTML = `<span class="word-cell">${item.kasraWord}</span>`;
+        });
+    }
+
+    // عرض الجمل
+    function renderSentences() {
+        const container = document.getElementById('sentencesList');
+        container.innerHTML = shortSentences.map(s => `<div class="sentence-card">📖 ${s}</div>`).join('');
+    }
+
+    // تمرين التوصيل (بدون تصحيح آلي، فقط الأم)
+    function buildMatchExercise() {
+        const container = document.getElementById('matchExercise');
+        container.innerHTML = '';
+        matchWordsList.forEach((item, idx) => {
+            const div = document.createElement('div');
+            div.className = 'match-item';
+            const incompleteSpan = document.createElement('div');
+            incompleteSpan.className = 'incomplete-word';
+            let correctChar = '';
+            if (item.correctHaraka === 'ِ') correctChar = 'ِ';
+            else if (item.correctHaraka === 'ُ') correctChar = 'ُ';
+            else correctChar = 'َ';
+            // عرض الكلمة بشكل ناقص مع خانة فارغة
+            const wordWithSlot = item.wordBase.replace('_', `<span class="char-slot"> ${correctChar} </span>`);
+            incompleteSpan.innerHTML = wordWithSlot + ' ← اختر الحركة : ';
+            const choicesDiv = document.createElement('div');
+            choicesDiv.className = 'haraka-choices';
+            const harakat = ['َ', 'ُ', 'ِ'];
+            harakat.forEach(h => {
+                const btn = document.createElement('button');
+                btn.innerText = h;
+                btn.classList.add('haraka-btn');
+                btn.addEventListener('click', () => {
+                    const feedbackSpan = div.querySelector('.match-feedback');
+                    if (feedbackSpan) {
+                        feedbackSpan.innerText = `🔍 الأم: اختار الطفل الحركة "${h}" مقابل الكلمة "${item.fullWord}". قومي بتقييم صحة الاختيار.`;
+                    }
+                });
+                choicesDiv.appendChild(btn);
+            });
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'match-feedback';
+            feedbackSpan.innerText = '⏳ انتظر تقييم الأم';
+            div.appendChild(incompleteSpan);
+            div.appendChild(choicesDiv);
+            div.appendChild(feedbackSpan);
+            container.appendChild(div);
+        });
+    }
+
+    // تمرين القراءة الجهرية مع نجمة
+    function buildReadingExercise() {
+        const container = document.getElementById('readingExercise');
+        container.innerHTML = '';
+        readingWordsList.forEach(word => {
+            const card = document.createElement('div');
+            card.className = 'reading-card';
+            card.innerHTML = `
+                <div class="word-to-read">${word}</div>
+                <button class="star-btn">⭐ نجمة</button>
+                <div class="star-mark" id="star-${word.replace(/[^a-zA-Z0-9]/g,'')}"></div>
+            `;
+            const btn = card.querySelector('.star-btn');
+            const starDiv = card.querySelector('.star-mark');
+            btn.addEventListener('click', () => {
+                const current = starDiv.innerHTML;
+                if (current === '⭐') starDiv.innerHTML = '';
+                else starDiv.innerHTML = '⭐';
+            });
+            container.appendChild(card);
+        });
+    }
+
+    // تمرين الإملاء المنظور
+    function buildDictationSection() {
+        const listContainer = document.getElementById('dictationWordsList');
+        listContainer.innerHTML = dictationWords.map(w => `<div class="dict-item">📜 ${w}</div>`).join('');
+        const inputField = document.getElementById('dictationInput');
+        const feedbackDiv = document.getElementById('dictationFeedback');
+        const checkBtn = document.getElementById('checkDictationBtn');
+        checkBtn.addEventListener('click', () => {
+            const childAnswer = inputField.value.trim();
+            if (childAnswer === "") {
+                feedbackDiv.innerHTML = "✏️ الأم: لم يكتب الطفل شيئاً بعد. اطلبي منه كتابة الكلمة التي تمليها.";
+            } else {
+                feedbackDiv.innerHTML = `📝 كتب الطفل: "${childAnswer}". قارني ذلك بالكلمة المطلوبة (على الأم تقييم صحة التشكيل والحروف). يمكنك إعادة المحاولة.`;
+            }
+        });
+    }
+
+    // توجيهات إضافية: استدعاء كل شيء
+    function init() {
+        buildTable();
+        renderSentences();
+        buildMatchExercise();
+        buildReadingExercise();
+        buildDictationSection();
+    }
+    init();
+</script>
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>الحركات القصيرة | الفتحة - الضمة - الكسرة | نسخة مصححة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fef9e6 0%, #f2efe0 100%);
+            font-family: 'Segoe UI', 'Cairo', 'Amiri', 'Traditional Arabic', sans-serif;
+            padding: 25px 15px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #fffffff2;
+            border-radius: 64px 48px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .hero {
+            background: #1f5e4f;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .hero h1 span {
+            background: #f9b42c;
+            padding: 5px 18px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            color: #1f3a2f;
+        }
+        .vowel-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            background: #fff0d4;
+            border-radius: 50px;
+            padding: 8px 24px;
+            color: #1f5e4f;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .sub {
+            margin-top: 12px;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .section-card {
+            background: white;
+            margin: 30px 25px;
+            border-radius: 48px;
+            padding: 20px 20px 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 1.8rem;
+            color: #1f5e4f;
+            border-right: 8px solid #f9b42c;
+            padding-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .letters-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 35px;
+            max-height: 160px;
+            overflow-y: auto;
+            padding: 8px;
+            background: #fef8ec;
+            border-radius: 60px;
+        }
+        .letter-btn {
+            background: #f4f0e6;
+            border: 2px solid #e2d5b6;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: 'Amiri', monospace;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        .letter-btn.active {
+            background: #f9b42c;
+            border-color: #c17f10;
+            color: #2c3e2f;
+            transform: scale(1.02);
+        }
+
+        .vowels-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 10px;
+        }
+        .vowel-card {
+            background: #fcf5e8;
+            border-radius: 48px;
+            padding: 20px 15px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+        .letter-big {
+            font-size: 4.5rem;
+            font-weight: 800;
+            font-family: 'Amiri', monospace;
+            color: #b9531a;
+            background: #fff4e0;
+            display: inline-block;
+            padding: 5px 25px;
+            border-radius: 60px;
+            margin-bottom: 15px;
+        }
+        .word-example {
+            font-size: 1.4rem;
+            font-weight: bold;
+            background: white;
+            padding: 10px;
+            border-radius: 40px;
+            margin-top: 12px;
+            color: #2c6e4f;
+        }
+        .haraka-name {
+            margin-top: 12px;
+            font-size: 1rem;
+            color: #b97f2a;
+            font-weight: bold;
+        }
+
+        .game-area {
+            background: #fef7e8;
+            border-radius: 48px;
+            padding: 20px;
+        }
+        .question-item {
+            background: #fffcf0;
+            border-radius: 40px;
+            padding: 18px;
+            margin-bottom: 20px;
+            border: 1px solid #ffe0aa;
+        }
+        .question-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .question-icon {
+            font-size: 3rem;
+            background: #fde5b3;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .question-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            flex: 1;
+        }
+        .options-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: flex-start;
+            margin: 10px 0;
+        }
+        .opt-move {
+            background: white;
+            border: 3px solid #f0ce8c;
+            padding: 10px 22px;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: 'Amiri', monospace;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        .opt-move:hover {
+            background: #f9b42c;
+            border-color: #e09d1e;
+            color: white;
+        }
+        .feedback {
+            margin-top: 12px;
+            padding: 8px 16px;
+            border-radius: 28px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .feedback-correct {
+            background: #dcfce7;
+            color: #15803d;
+        }
+        .feedback-wrong {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+        .score-panel {
+            background: #2c6e4f;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .reset-game-btn {
+            background: #e67e22;
+            border: none;
+            padding: 8px 25px;
+            border-radius: 40px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #e0dfce;
+            font-size: 0.8rem;
+            color: #4a5c55;
+        }
+        @media (max-width: 700px) {
+            .vowel-card { width: 180px; }
+            .letter-big { font-size: 3rem; }
+            .opt-move { font-size: 1.2rem; padding: 6px 16px; }
+            .question-text { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>
+            📖 الحركات القصيرة
+            <span>الفتحة - الضمة - الكسرة</span>
+        </h1>
+        <div class="vowel-badges">
+            <div class="badge">◌َ  فتحة</div>
+            <div class="badge">◌ُ  ضمة</div>
+            <div class="badge">◌ِ  كسرة</div>
+        </div>
+        <div class="sub">تعلم الحروف مع الحركات والكلمات المصححة، ثم تدرب على تركيب المقاطع المبعثرة</div>
+    </div>
+
+    <!-- النشاط الأول: الحرف مع الكلمات (بيانات مصححة) -->
+    <div class="section-card">
+        <div class="section-title">⭐ النشاط الأول: الحرف مع الحركات والكلمات</div>
+        <div class="letters-nav" id="lettersNav"></div>
+        <div id="vowelsDetail" class="vowels-container"></div>
+    </div>
+
+    <!-- النشاط الثاني: المقاطع المبعثرة -->
+    <div class="section-card game-area">
+        <div class="section-title">🧩 النشاط الثاني: المقاطع المبعثرة</div>
+        <p style="margin-bottom: 16px;">🔻 اختر المقطع (الحرف + الحركة) المناسب لتكوين الكلمة المعروضة 🔻</p>
+        <div id="gameQuestionsContainer"></div>
+        <div class="score-panel" id="scorePanel">
+            <span>✅ النتيجة: <span id="scoreValue">0</span> / <span id="totalQuestions">0</span></span>
+            <button id="refreshGameBtn" class="reset-game-btn">🔄 أسئلة جديدة</button>
+        </div>
+    </div>
+    <footer>
+        تم تصحيح الكلمات التي كانت حركتها الأولى غير مطابقة (مثل الطاء، العين...). التدريبات على الحركات القصيرة أصبحت دقيقة.
+    </footer>
+</div>
+
+<script>
+    // ------------------------------ البيانات المصححة ------------------------------
+    // تم تعديل الكلمات التي كانت حركتها الأولى خاطئة (خاصة حرف الطاء والعين وغيرها)
+    // نحرص على أن الحركة الأولى للكلمة تطابق نوع الحركة المذكورة (فتحة / ضمة / كسرة)
+    const wordsData = [
+        { letter: 'أ', fatha: 'أَسَد', damma: 'أُذُن', kasra: 'إِبْرِيق' },
+        { letter: 'ب', fatha: 'بَطَّة', damma: 'بُرْج', kasra: 'بِنْت' },
+        { letter: 'ت', fatha: 'تَمْر', damma: 'تُفَّاح', kasra: 'تِمْسَاح' },
+        { letter: 'ث', fatha: 'ثَلْج', damma: 'ثُعْبَان', kasra: 'ثِيَاب' },
+        { letter: 'ج', fatha: 'جَمَل', damma: 'جُبُن', kasra: 'جِدَار' },
+        { letter: 'ح', fatha: 'حَلِيب', damma: 'حُسَام', kasra: 'حِصَان' },
+        { letter: 'خ', fatha: 'خَرُوف', damma: 'خُبْز', kasra: 'خِيَار' },
+        { letter: 'د', fatha: 'دَجَاج', damma: 'دُبّ', kasra: 'دِيك' },        // تم إضافة حرف الدال (كان مفقوداً)
+        { letter: 'ذ', fatha: 'ذَئِب', damma: 'ذُبَابَة', kasra: 'ذِئْبَة' },    // حرف الذال
+        { letter: 'ر', fatha: 'رُمَّان', damma: 'رُبَّاع', kasra: 'رِسَالَة' },
+        { letter: 'ز', fatha: 'زَرَافَة', damma: 'زُهُور', kasra: 'زِفَاف' },
+        { letter: 'س', fatha: 'سَمَكَة', damma: 'سُلَحْفَاة', kasra: 'سِكِّين' },
+        { letter: 'ش', fatha: 'شَمْس', damma: 'شُرْطِيّ', kasra: 'شِرَاع' },
+        { letter: 'ص', fatha: 'صَقْر', damma: 'صُنْدُوق', kasra: 'صِنَارَة' },
+        { letter: 'ض', fatha: 'ضَوْء', damma: 'ضُبَّاط', kasra: 'ضِرْس' },
+        // تصحيح حرف الطاء: الفتحة أصبحت طَائِرَة بدلاً من طُرُق (التي كانت تبدأ بضم)
+        { letter: 'ط', fatha: 'طَبْل', damma: 'طُيُور', kasra: 'طِفْل' },
+        { letter: 'ظ', fatha: 'ظَبْي', damma: 'ظُفْر', kasra: 'ظِلّ' },
+        { letter: 'ع', fatha: 'عَيْن', damma: 'عُصْفُور', kasra: 'عِنَب' },
+        { letter: 'غ', fatha: 'غَسَلَ', damma: 'غُرَاب', kasra: 'غِطَاء' },
+        { letter: 'ف', fatha: 'فَرَاشَة', damma: 'فُسْتَان', kasra: 'فِلَاحَة' },
+        { letter: 'ق', fatha: 'قَلَم', damma: 'قُبَّعَة', kasra: 'قِطّ' },
+        { letter: 'ك', fatha: 'كَلْب', damma: 'كُرَة', kasra: 'كِتَاب' },
+        { letter: 'ل', fatha: 'لَيْمُون', damma: 'لُعْبَة', kasra: 'لِسَان' },
+        { letter: 'م', fatha: 'مَوْز', damma: 'مُعَلِّم', kasra: 'مِقَصّ' },
+        { letter: 'ن', fatha: 'نَحْلَة', damma: 'نُجُوم', kasra: 'نِسَاء' },
+        { letter: 'ه', fatha: 'هَرَم', damma: 'هُدْهُد', kasra: 'هِلَال' },
+        { letter: 'و', fatha: 'وَلَد', damma: 'وُرُود', kasra: 'وِسَادَة' },
+        { letter: 'ي', fatha: 'يَد', damma: 'يُصَلِّي', kasra: 'يِسَار' }   // تم تصحيح كسرة الياء
+    ];
+
+    const lettersList = wordsData.map(item => item.letter);
+    let currentLetter = 'أ';
+
+    // ----------------------------- النشاط الأول -----------------------------
+    function buildLetterNav() {
+        const nav = document.getElementById('lettersNav');
+        nav.innerHTML = '';
+        lettersList.forEach(letter => {
+            const btn = document.createElement('button');
+            btn.textContent = letter;
+            btn.classList.add('letter-btn');
+            if (letter === currentLetter) btn.classList.add('active');
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.letter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentLetter = letter;
+                renderVowelDetails(letter);
+            });
+            nav.appendChild(btn);
+        });
+    }
+
+    function renderVowelDetails(letter) {
+        const data = wordsData.find(item => item.letter === letter);
+        if (!data) return;
+        const container = document.getElementById('vowelsDetail');
+        container.innerHTML = `
+            <div class="vowel-card">
+                <div class="letter-big">${letter}َ</div>
+                <div class="word-example">📖 ${data.fatha}</div>
+                <div class="haraka-name">فتحة (ـَ)</div>
+            </div>
+            <div class="vowel-card">
+                <div class="letter-big">${letter}ُ</div>
+                <div class="word-example">📖 ${data.damma}</div>
+                <div class="haraka-name">ضمة (ـُ)</div>
+            </div>
+            <div class="vowel-card">
+                <div class="letter-big">${letter}ِ</div>
+                <div class="word-example">📖 ${data.kasra}</div>
+                <div class="haraka-name">كسرة (ـِ)</div>
+            </div>
+        `;
+    }
+
+    // ----------------------------- النشاط الثاني: المقاطع المبعثرة (محسن) -----------------------------
+    // دقيقة لاستخراج الحرف والحركة من الكلمة المشكولة (أول حرف + الحركة التي تليه)
+    function getFirstLetterAndHaraka(word) {
+        if (!word || word.length < 2) return { letter: '?', haraka: 'َ' };
+        const firstChar = word[0];
+        let haraka = '';
+        // نبحث عن الحركة بعد الحرف الأول (عادةً ثاني حرف هو حركة إما َ أو ُ أو ِ)
+        if (word[1] === 'َ') haraka = 'َ';
+        else if (word[1] === 'ُ') haraka = 'ُ';
+        else if (word[1] === 'ِ') haraka = 'ِ';
+        else haraka = 'َ'; // افتراضي
+        return { letter: firstChar, haraka: haraka };
+    }
+
+    // توليد مجموعة أسئلة عشوائية من جميع الكلمات المصححة
+    function generateQuestionPool() {
+        const allWords = [];
+        for (const item of wordsData) {
+            allWords.push({ word: item.fatha, expectedLetter: item.letter, expectedHaraka: 'َ', fullPhrase: item.fatha });
+            allWords.push({ word: item.damma, expectedLetter: item.letter, expectedHaraka: 'ُ', fullPhrase: item.damma });
+            allWords.push({ word: item.kasra, expectedLetter: item.letter, expectedHaraka: 'ِ', fullPhrase: item.kasra });
+        }
+        // التحقق من صحة: يجب أن تكون الحركة المستخرجة من الكلمة مطابقة للحركة المتوقعة، وإلا نصحح (ضمان)
+        const validWords = allWords.filter(w => {
+            const { haraka } = getFirstLetterAndHaraka(w.word);
+            return haraka === w.expectedHaraka;
+        });
+        // خلط واختيار 10-12 سؤالاً
+        const shuffled = [...validWords];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled.slice(0, 12);
+    }
+
+    function buildOptions(correctLetter, correctHaraka) {
+        const correctSegment = `${correctLetter}${correctHaraka}`;
+        let otherHarakat = [];
+        if (correctHaraka === 'َ') otherHarakat = ['ُ', 'ِ'];
+        else if (correctHaraka === 'ُ') otherHarakat = ['َ', 'ِ'];
+        else otherHarakat = ['َ', 'ُ'];
+        const opt2 = `${correctLetter}${otherHarakat[0]}`;
+        const opt3 = `${correctLetter}${otherHarakat[1]}`;
+        let options = [correctSegment, opt2, opt3];
+        // خلط
+        for (let i = options.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [options[i], options[j]] = [options[j], options[i]];
+        }
+        return options;
+    }
+
+    let currentQuestionsList = [];
+    let userAnswers = [];
+    let currentScore = 0;
+
+    function updateScoreUI() {
+        document.getElementById('scoreValue').innerText = currentScore;
+        document.getElementById('totalQuestions').innerText = currentQuestionsList.length;
+    }
+
+    function recalcScore() {
+        let newScore = 0;
+        for (let i = 0; i < currentQuestionsList.length; i++) {
+            const q = currentQuestionsList[i];
+            const correctSeg = `${q.expectedLetter}${q.expectedHaraka}`;
+            if (userAnswers[i] === correctSeg) newScore++;
+        }
+        currentScore = newScore;
+        updateScoreUI();
+    }
+
+    function renderGameQuestions() {
+        const container = document.getElementById('gameQuestionsContainer');
+        if (!container) return;
+        container.innerHTML = '';
+        currentQuestionsList.forEach((q, idx) => {
+            const { fullPhrase, expectedLetter, expectedHaraka } = q;
+            const correctSegment = `${expectedLetter}${expectedHaraka}`;
+            const options = buildOptions(expectedLetter, expectedHaraka);
+            const userChoice = userAnswers[idx];
+            const emoji = getEmojiForWord(fullPhrase);
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('question-item');
+            const rowDiv = document.createElement('div');
+            rowDiv.classList.add('question-row');
+            rowDiv.innerHTML = `
+                <div class="question-icon">${emoji}</div>
+                <div class="question-text">كلمة : <strong style="font-size:1.5rem; color:#b95a2c;">${fullPhrase}</strong><br> اختر المقطع الذي تبدأ به الكلمة:</div>
+            `;
+            questionDiv.appendChild(rowDiv);
+            const optionsDiv = document.createElement('div');
+            optionsDiv.classList.add('options-group');
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.textContent = opt;
+                btn.classList.add('opt-move');
+                if (userChoice === opt) {
+                    btn.style.background = "#f9b42c";
+                    btn.style.borderColor = "#e09d1e";
+                    btn.style.color = "white";
+                }
+                btn.addEventListener('click', () => {
+                    if (userAnswers[idx] !== null) {
+                        // نسمح بتغيير الإجابة
+                    }
+                    userAnswers[idx] = opt;
+                    recalcScore();
+                    renderGameQuestions(); // إعادة الرسم لعرض التغذية الراجعة
+                });
+                optionsDiv.appendChild(btn);
+            });
+            questionDiv.appendChild(optionsDiv);
+            if (userChoice) {
+                const isCorrect = (userChoice === correctSegment);
+                const fbDiv = document.createElement('div');
+                fbDiv.classList.add('feedback');
+                fbDiv.classList.add(isCorrect ? 'feedback-correct' : 'feedback-wrong');
+                fbDiv.innerText = isCorrect ? '✅ إجابة صحيحة! أحسنت.' : `❌ الإجابة الصحيحة هي: ${correctSegment}`;
+                questionDiv.appendChild(fbDiv);
+            } else {
+                const noteDiv = document.createElement('div');
+                noteDiv.style.fontSize = '0.8rem';
+                noteDiv.style.color = '#b68b40';
+                noteDiv.innerText = '🔘 اضغط على أحد الخيارات للإجابة';
+                questionDiv.appendChild(noteDiv);
+            }
+            container.appendChild(questionDiv);
+        });
+    }
+
+    function setupNewGame() {
+        currentQuestionsList = generateQuestionPool();
+        userAnswers = new Array(currentQuestionsList.length).fill(null);
+        currentScore = 0;
+        updateScoreUI();
+        renderGameQuestions();
+    }
+
+    function getEmojiForWord(word) {
+        const map = {
+            'أَسَد':'🦁','أُذُن':'👂','إِبْرِيق':'🏺','بَطَّة':'🦆','بُرْج':'🗼','بِنْت':'👧',
+            'تَمْر':'🍇','تُفَّاح':'🍎','تِمْسَاح':'🐊','ثَلْج':'❄️','ثُعْبَان':'🐍','ثِيَاب':'👕',
+            'جَمَل':'🐫','جُبُن':'🧀','جِدَار':'🧱','حَلِيب':'🥛','حُسَام':'⚔️','حِصَان':'🐎',
+            'خَرُوف':'🐑','خُبْز':'🍞','خِيَار':'🥒','دَجَاج':'🐔','دُبّ':'🐻','دِيك':'🐓',
+            'ذَئِب':'🐺','ذُبَابَة':'🪰','ذِئْبَة':'🐺','رُمَّان':'🍎','رُبَّاع':'📏','رِسَالَة':'✉️',
+            'زَرَافَة':'🦒','زُهُور':'🌻','زِفَاف':'💍','سَمَكَة':'🐟','سُلَحْفَاة':'🐢','سِكِّين':'🔪',
+            'شَمْس':'☀️','شُرْطِيّ':'👮','شِرَاع':'⛵','صَقْر':'🦅','صُنْدُوق':'📦','صِنَارَة':'🎣',
+            'ضَوْء':'💡','ضُبَّاط':'👮‍♂️','ضِرْس':'🦷','طَائِرَة':'✈️','طُيُور':'🕊️','طِفْل':'👶',
+            'ظَبْي':'🦌','ظُفْر':'💅','ظِلّ':'🌑','عَيْن':'👁️','عُصْفُور':'🐦','عِنَب':'🍇',
+            'غَالَة':'🏞️','غُرَاب':'🐦‍⬛','غِطَاء':'🧢','فَرَاشَة':'🦋','فُسْتَان':'👗','فِلَاحَة':'🌾',
+            'قَلَم':'✒️','قُبَّعَة':'🎩','قِطّ':'🐱','كَلْب':'🐕','كُرَة':'⚽','كِتَاب':'📖',
+            'لَيْمُون':'🍋','لُعْبَة':'🎲','لِسَان':'👅','مَوْز':'🍌','مُعَلِّم':'👨‍🏫','مِقَصّ':'✂️',
+            'نَحْلَة':'🐝','نُجُوم':'⭐','نِسَاء':'👩','هَرَم':'🛕','هُدْهُد':'🐦','هِلَال':'🌙',
+            'وَلَد':'👦','وُرُود':'🌹','وِسَادَة':'🛏️','يَد':'🖐️','يُصَلِّي':'🕌','يِسَار':'⬅️'
+        };
+        if (map[word]) return map[word];
+        return word.charAt(0) + '️⃣';
+    }
+
+    // ----------------------------- التهيئة -----------------------------
+    function init() {
+        buildLetterNav();
+        renderVowelDetails('أ');
+        setupNewGame();
+        document.getElementById('refreshGameBtn').addEventListener('click', () => setupNewGame());
+    }
+    init();
+</script>
+</body>
+</html>

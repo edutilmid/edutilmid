@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>دروس حروف الهجاء | مع الأم | تمارين يدوية دون تصحيح آلي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fef9e8 0%, #f2f0e6 100%);
+            font-family: 'Segoe UI', 'Cairo', 'Amiri', 'Traditional Arabic', sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #ffffffdd;
+            border-radius: 64px 48px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(2px);
+        }
+
+        .header {
+            background: #2c6e4f;
+            padding: 20px 24px;
+            text-align: center;
+            color: white;
+        }
+        .header h1 {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .header h1 span {
+            background: #f9b42c;
+            padding: 5px 18px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+        }
+        .sub {
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        .letter-nav {
+            background: #fff8e7;
+            padding: 15px 10px;
+            border-bottom: 4px solid #f9b42c;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .letter-btn {
+            background: white;
+            border: 2px solid #ddca9a;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.1s;
+            font-family: 'Amiri', monospace;
+        }
+        .letter-btn.active {
+            background: #f9b42c;
+            color: #2c3e2f;
+            border-color: #c17f10;
+        }
+        .letter-btn:hover {
+            background: #ffe0a3;
+        }
+
+        .lesson-area {
+            padding: 30px 25px;
+        }
+
+        .big-letter {
+            text-align: center;
+            font-size: 5.5rem;
+            font-weight: 800;
+            background: #fff0df;
+            border-radius: 60px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 3px solid #ffdead;
+            color: #2c6e4f;
+            font-family: 'Amiri', monospace;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            color: #2c6e4f;
+            border-right: 8px solid #f9b42c;
+            padding-right: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* قسم الصور (كلمات تبدأ بالحرف) */
+        .images-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-bottom: 35px;
+        }
+        .image-card {
+            background: white;
+            border-radius: 35px;
+            padding: 15px;
+            text-align: center;
+            width: 140px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .image-card div {
+            font-size: 4rem;
+            background: #fff3e0;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        .image-card span {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2d5a4a;
+        }
+
+        /* تمارين عامة */
+        .exercise-box {
+            background: #fef7e6;
+            border-radius: 48px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 2px solid #fbdea4;
+        }
+        .exercise-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .word-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .word-choice {
+            background: white;
+            border: 3px solid #e6cd92;
+            padding: 12px 25px;
+            border-radius: 60px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        .word-choice:hover {
+            background: #f9b42c;
+            color: white;
+            border-color: #f9b42c;
+        }
+        .mother-message {
+            margin-top: 16px;
+            background: #fff2df;
+            border-radius: 32px;
+            padding: 12px;
+            text-align: center;
+            color: #a5671a;
+            font-weight: bold;
+            border-right: 6px solid #f9b42c;
+        }
+
+        /* صور التمرين الصوتي (بدون صوت آلي) */
+        .listening-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .listen-card {
+            background: #fef1cf;
+            border-radius: 48px;
+            padding: 15px;
+            text-align: center;
+            width: 130px;
+            cursor: pointer;
+            transition: 0.1s;
+            border: 2px solid #ffe0aa;
+        }
+        .listen-card .emoji-big {
+            font-size: 4rem;
+        }
+        .listen-card span {
+            display: block;
+            margin-top: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .mark-area {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .btn-mark {
+            background: #f9b42c;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 60px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        .mark-status {
+            background: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: bold;
+        }
+
+        /* نشاط الكتابة (بدون تصحيح آلي) */
+        .writing-area {
+            background: #fff2e0;
+            border-radius: 48px;
+            padding: 20px;
+        }
+        .letter-model {
+            font-size: 5rem;
+            font-family: 'Amiri', monospace;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #b9612c;
+        }
+        .writing-input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .writing-input input {
+            width: 250px;
+            padding: 14px;
+            font-size: 2rem;
+            text-align: center;
+            font-family: 'Cairo', monospace;
+            border-radius: 60px;
+            border: 3px solid #e6cd92;
+            background: white;
+        }
+        .mother-check-btn {
+            background: #4c8b79;
+            border: none;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .write-mother-note {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            background: #f7e7cf;
+            padding: 8px;
+            border-radius: 28px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 18px;
+            background: #e0dfce;
+            color: #4a5c55;
+            font-size: 0.8rem;
+        }
+        @media (max-width: 700px) {
+            .big-letter { font-size: 3.8rem; }
+            .word-choice { font-size: 1rem; padding: 8px 16px; }
+            .listen-card { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>
+            📖 حروف الهجاء مع أمي
+            <span>تمارين يدوية</span>
+        </h1>
+        <div class="sub">🌸 تختار الأم الحرف، ثم تنطق الكلمات، وتصحح للتلميذ بدون تصحيح آلي</div>
+    </div>
+
+    <div class="letter-nav" id="letterNav"></div>
+
+    <div class="lesson-area" id="lessonContent">
+        <div class="big-letter" id="bigLetter">أ</div>
+
+        <!-- صور الكلمات التي تبدأ بالحرف -->
+        <div class="section-title">📸 كلمات وصور تبدأ بهذا الحرف</div>
+        <div class="images-grid" id="imagesGrid"></div>
+
+        <!-- التمرين 1: اختيار الكلمة (يدوي بدون تصحيح) -->
+        <div class="exercise-box">
+            <div class="exercise-title">🔍 تمرين 1: اختر الكلمة التي تحتوي على الحرف</div>
+            <div class="word-options" id="wordOptions"></div>
+            <div class="mother-message">
+                👩‍👧 <strong>دور الأم:</strong> بعد أن يختار الطفل الإجابة، قومي بتصحيحه بلطف وأخبريه إذا كانت الإجابة صحيحة أم لا. 
+                يمكنكِ مناقشته سبب اختيار هذه الكلمة.
+            </div>
+        </div>
+
+        <!-- التمرين 2: الاستماع بواسطة الأم (صور تنطقها الأم) -->
+        <div class="exercise-box">
+            <div class="exercise-title">🎧 تمرين 2: استمع إلى أمي ثم ضع علامة ✔️ عند سماع الحرف</div>
+            <div class="listening-images" id="listeningImages"></div>
+            <div class="mark-area">
+                <button id="markListenBtn" class="btn-mark">✔️ ضع علامة (سمعت الحرف)</button>
+                <span id="listenMarkResult" class="mark-status">⚪ لم تضع علامة بعد</span>
+            </div>
+            <div class="mother-message" style="margin-top:12px;">
+                💬 <strong>تعليمات للأم:</strong> انطقي اسم كل صورة من الصور أعلاه بوضوح (مرة أو مرتين). اطلبي من طفلك أن يضع علامة ✅ عندما يسمع الكلمة التي <strong>يبدأ حرفها</strong> بالحرف الموجود (مثلاً: حرف الألف → كلمة "أرنب"). 
+                لا يوجد صوت آلي؛ أنتِ المعلّمة الأولى.
+            </div>
+        </div>
+
+        <!-- التمرين 3: كتابة الحرف (بدون تصحيح آلي) -->
+        <div class="writing-area">
+            <div class="exercise-title">✍️ تمرين 3: اكتب الحرف</div>
+            <div class="letter-model" id="letterModel">أ</div>
+            <div class="writing-input">
+                <input type="text" id="writeLetterInput" placeholder="اكتب الحرف هنا" maxlength="1" autocomplete="off">
+                <button id="motherReviewBtn" class="mother-check-btn">📋 أظهر للأم ما كتبته</button>
+                <div id="writeMotherNote" class="write-mother-note"></div>
+            </div>
+            <div class="mother-message">
+                🖊️ <strong>ملاحظة للأم:</strong> اطلبي من الطفل كتابة الحرف في المربع، ثم قومي بمراجعة كتابته يدويًا. 
+                لا يصحح البرنامج تلقائياً، بل أنتِ من تقيمين صحة الكتابة.
+            </div>
+        </div>
+    </div>
+    <footer>
+        🧡 تمارين تفاعلية تعتمد على توجيه الأم | لا يصحح البرنامج، بل الأم هي الموجه الأول
+    </footer>
+</div>
+
+<script>
+    // قائمة الحروف
+    const arabicAlphabet = [
+        'أ', 'ب', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ك', 'ل', 'م', 'ن', 'ه', 'و', 'ي'
+    ];
+    
+    // قاعدة بيانات لكل حرف: صور (كلمات + إيموجي) وتمرين اختيار الكلمات (خيارات + الكلمة الصحيحة لكن لن يتم تصحيحها آلياً)
+    // والصور الخاصة بتمرين الاستماع (حيوانات وأشياء مختلفة)
+    const lettersDB = {};
+    
+    // تعبئة البيانات لكل الحروف (أمثلة غنية)
+    function initDB() {
+        // نموذج بيانات لكل حرف (صور رئيسية، خيارات الكلمات، صور الاستماع)
+        const predefined = {
+            'أ': { mainImages: [['أسد','🦁'], ['أرنب','🐇'], ['أناناس','🍍']], wordOptions: ['أسد','باب','كرسي','أرنب'], correctWord: 'أسد', listenImages: [['أرنب','🐇'], ['أسد','🦁'], ['قط','🐱'], ['تفاحة','🍎']] },
+            'ب': { mainImages: [['بط','🦆'], ['باب','🚪'], ['بيت','🏠']], wordOptions: ['بيت','جمل','قمر','بط'], correctWord: 'بيت', listenImages: [['بط','🦆'], ['باب','🚪'], ['كلب','🐕'], ['موز','🍌']] },
+            'ت': { mainImages: [['تفاحة','🍎'], ['تاج','👑'], ['تمساح','🐊']], wordOptions: ['تفاحة','قلم','كتاب','مدرسة'], correctWord: 'تفاحة', listenImages: [['تفاحة','🍎'], ['تاج','👑'], ['طاووس','🦚'], ['ثعلب','🦊']] },
+            'ث': { mainImages: [['ثعلب','🦊'], ['ثلج','❄️'], ['ثوم','🧄']], wordOptions: ['ثعلب','نمر','ورد','ثوم'], correctWord: 'ثعلب', listenImages: [['ثعلب','🦊'], ['ثلج','☃️'], ['جمل','🐫'], ['فراشة','🦋']] },
+            'ج': { mainImages: [['جمل','🐫'], ['جزر','🥕'], ['جبل','🏔️']], wordOptions: ['جمل','بيت','سيارة','جزر'], correctWord: 'جمل', listenImages: [['جمل','🐫'], ['جزر','🥕'], ['حصان','🐎'], ['قمر','🌙']] },
+            'ح': { mainImages: [['حمار','🐴'], ['حليب','🥛'], ['حديقة','🌳']], wordOptions: ['حمار','كتاب','كرسي','حليب'], correctWord: 'حمار', listenImages: [['حمار','🐴'], ['حليب','🥛'], ['أرنب','🐇'], ['نجمة','⭐']] },
+            'خ': { mainImages: [['خروف','🐑'], ['خبز','🍞'], ['خاتم','💍']], wordOptions: ['خروف','شمس','قمر','خبز'], correctWord: 'خروف', listenImages: [['خروف','🐑'], ['خبز','🍞'], ['بطة','🦆'], ['عنب','🍇']] },
+            'د': { mainImages: [['ديك','🐓'], ['دب','🐻'], ['دولاب','🗄️']], wordOptions: ['ديك','نافذة','باب','دب'], correctWord: 'ديك', listenImages: [['ديك','🐓'], ['دب','🐻'], ['سمكة','🐟'], ['كرسي','🪑']] },
+            'ذ': { mainImages: [['ذئب','🐺'], ['ذهب','💰'], ['ذرة','🌽']], wordOptions: ['ذئب','حذاء','شجرة','ذهب'], correctWord: 'ذئب', listenImages: [['ذئب','🐺'], ['ذرة','🌽'], ['فيل','🐘'], ['وردة','🌹']] },
+            'ر': { mainImages: [['رمان','🍎'], ['ريشة','🪶'], ['راية','🏁']], wordOptions: ['رمان','ممحاة','كراسة','ريشة'], correctWord: 'رمان', listenImages: [['رمان','🍎'], ['ريشة','🪶'], ['سلحفاة','🐢'], ('نحلة','🐝')] },
+            'ز': { mainImages: [['زهرة','🌻'], ['زرافة','🦒'], ['زيتون','🫒']], wordOptions: ['زهرة','طاولة','قلم','زرافة'], correctWord: 'زهرة', listenImages: [['زهرة','🌻'], ['زرافة','🦒'], ['أسد','🦁'], ['ليمون','🍋']] },
+            'س': { mainImages: [['سيف','⚔️'], ['سحاب','☁️'], ['سمكة','🐟']], wordOptions: ['سيف','بلبل','عين','سمكة'], correctWord: 'سيف', listenImages: [['سيف','⚔️'], ['سمكة','🐟'], ('فأر','🐭'), ['قلم','✒️']] },
+            'ش': { mainImages: [['شمس','☀️'], ['شجرة','🌲'], ['شراب','🧃']], wordOptions: ['شمس','نهر','جبل','شجرة'], correctWord: 'شمس', listenImages: [['شمس','☀️'], ['شجرة','🌲'], ['ديك','🐓'], ('حذاء','👟')] },
+            'ص': { mainImages: [['صقر','🦅'], ['صورة','🖼️'], ['صابون','🧼']], wordOptions: ['صقر','فيل','وطن','صورة'], correctWord: 'صقر', listenImages: [['صقر','🦅'], ['صابون','🧼'], ['ببغاء','🦜'], ['كتاب','📖']] },
+            'ض': { mainImages: [['ضفدع','🐸'], ['ضبع','🐾'], ['ضرس','🦷']], wordOptions: ['ضفدع','نملة','عصفور','ضرس'], correctWord: 'ضفدع', listenImages: [['ضفدع','🐸'], ['ضرس','🦷'], ('زرافة','🦒'), ('نحلة','🐝')] },
+            'ط': { mainImages: [['طائرة','✈️'], ['طبيب','👨‍⚕️'], ['طبلة','🥁']], wordOptions: ['طائرة','حصان','مدينة','طبيب'], correctWord: 'طائرة', listenImages: [['طائرة','✈️'], ['طبيب','👨‍⚕️'], ['قطار','🚂'], ['سلحفاة','🐢']] },
+            'ظ': { mainImages: [['ظبي','🦌'], ['ظل','🌑'], ['ظرف','📩']], wordOptions: ['ظبي','قلب','يد','ظل'], correctWord: 'ظبي', listenImages: [['ظبي','🦌'], ['ظل','🌘'], ['غزال','🦌'], ['قمر','🌙']] },
+            'ع': { mainImages: [['عنكبوت','🕷️'], ['عنب','🍇'], ['عسل','🍯']], wordOptions: ['عنكبوت','فراشة','وردة','عنب'], correctWord: 'عنكبوت', listenImages: [['عنكبوت','🕷️'], ['عنب','🍇'], ['عصير','🧃'], ['طائر','🐦']] },
+            'غ': { mainImages: [['غزال','🦌'], ['غيمة','☁️'], ['غابة','🌳']], wordOptions: ['غزال','كتف','رأس','غيمة'], correctWord: 'غزال', listenImages: [['غزال','🦌'], ['غيمة','☁️'], ['فيل','🐘'], ['خروف','🐑']] },
+            'ف': { mainImages: [['فيل','🐘'], ['فأر','🐭'], ['فراشة','🦋']], wordOptions: ['فيل','بيضة','نحلة','فأر'], correctWord: 'فيل', listenImages: [['فيل','🐘'], ['فأر','🐭'], ['فراشة','🦋'], ['بطيخ','🍉']] },
+            'ق': { mainImages: [['قلم','✒️'], ['قمر','🌙'], ['قطة','🐱']], wordOptions: ['قلم','ساعة','كرسي','قطة'], correctWord: 'قلم', listenImages: [['قلم','✒️'], ['قمر','🌙'], ['قطار','🚂'], ['قفص','🏠']] },
+            'ك': { mainImages: [['كلب','🐕'], ['كتاب','📖'], ['كرزة','🍒']], wordOptions: ['كلب','نافذة','طاولة','كتاب'], correctWord: 'كلب', listenImages: [['كلب','🐕'], ['كتاب','📖'], ['كرسي','🪑'], ['كعكة','🍰']] },
+            'ل': { mainImages: [['ليمون','🍋'], ['لبن','🥛'], ['لص','🦹']], wordOptions: ['ليمون','مطر','ريح','لبن'], correctWord: 'ليمون', listenImages: [['ليمون','🍋'], ['لبن','🥛'], ('لقلق','🐦'), ['لؤلؤ','⚪']] },
+            'م': { mainImages: [['مسجد','🕌'], ['مطر','🌧️'], ['مدرسة','🏫']], wordOptions: ['مسجد','سيارة','طريق','مطر'], correctWord: 'مسجد', listenImages: [['مسجد','🕌'], ['مطر','🌧️'], ['ممحاة','🧽'], ['مقص','✂️']] },
+            'ن': { mainImages: [['نجمة','⭐'], ['نملة','🐜'], ['نهر','🌊']], wordOptions: ['نجمة','هلال','سماء','نملة'], correctWord: 'نجمة', listenImages: [['نجمة','⭐'], ['نملة','🐜'], ['نحلة','🐝'], ['نار','🔥']] },
+            'ه': { mainImages: [['هلال','🌙'], ['هدهد','🐦'], ['هاتف','📱']], wordOptions: ['هلال','جدار','سرير','هدهد'], correctWord: 'هلال', listenImages: [['هلال','🌙'], ['هدهد','🐦'], ['هرة','🐈'], ['هدية','🎁']] },
+            'و': { mainImages: [['وردة','🌹'], ['وطن','🏡'], ['وزة','🦢']], wordOptions: ['وردة','قفص','مصباح','وطن'], correctWord: 'وردة', listenImages: [['وردة','🌹'], ['وزة','🦢'], ['ولف','🐺'], ['وقت','⏰']] },
+            'ي': { mainImages: [['يد','🖐️'], ['يمين','➡️'], ['ياسمين','🌸']], wordOptions: ['يد','رجل','وجه','ياسمين'], correctWord: 'يد', listenImages: [['يد','🖐️'], ['يخت','⛵'], ['يمامة','🕊️'], ['ينبوع','💧']] }
+        };
+        
+        for (let letter of arabicAlphabet) {
+            if (predefined[letter]) {
+                lettersDB[letter] = predefined[letter];
+            } else {
+                // بيانات احتياطية
+                lettersDB[letter] = {
+                    mainImages: [[`كلمة_${letter}`, '📖'], [`مثال_${letter}`, '📚']],
+                    wordOptions: [`كلمة_${letter}`, 'قلم', 'دفتر'],
+                    correctWord: `كلمة_${letter}`,
+                    listenImages: [[`صورة_${letter}`, '🖼️'], [`شيء_${letter}`, '📦']]
+                };
+            }
+        }
+    }
+    
+    initDB();
+    
+    let currentLetter = 'أ';
+    let listeningMarked = false;
+    
+    // عناصر DOM
+    const letterNavDiv = document.getElementById('letterNav');
+    const bigLetterSpan = document.getElementById('bigLetter');
+    const imagesGridDiv = document.getElementById('imagesGrid');
+    const wordOptionsDiv = document.getElementById('wordOptions');
+    const listeningImagesDiv = document.getElementById('listeningImages');
+    const markListenBtn = document.getElementById('markListenBtn');
+    const listenMarkResultSpan = document.getElementById('listenMarkResult');
+    const letterModelSpan = document.getElementById('letterModel');
+    const writeInput = document.getElementById('writeLetterInput');
+    const motherReviewBtn = document.getElementById('motherReviewBtn');
+    const writeMotherNote = document.getElementById('writeMotherNote');
+    
+    function updateLesson(letter) {
+        currentLetter = letter;
+        bigLetterSpan.innerText = letter;
+        letterModelSpan.innerText = letter;
+        
+        // 1. الصور الرئيسية
+        const mainImgs = lettersDB[letter].mainImages;
+        imagesGridDiv.innerHTML = '';
+        mainImgs.forEach(img => {
+            const card = document.createElement('div');
+            card.className = 'image-card';
+            card.innerHTML = `<div>${img[1]}</div><span>${img[0]}</span>`;
+            imagesGridDiv.appendChild(card);
+        });
+        
+        // 2. خيارات التمرين 1 (اختيار الكلمة) - بدون تصحيح آلي
+        const options = lettersDB[letter].wordOptions;
+        wordOptionsDiv.innerHTML = '';
+        options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.innerText = opt;
+            btn.className = 'word-choice';
+            // لا يوجد تصحيح آلي، فقط نعطي رسالة للأم
+            btn.addEventListener('click', () => {
+                // لا نعرض صح أو خطأ، فقط نذكر الأم بأن تنظر
+                const msgDiv = document.querySelector('#lessonContent .exercise-box .mother-message');
+                if (msgDiv) {
+                    msgDiv.style.backgroundColor = '#fff0da';
+                    setTimeout(() => {
+                        msgDiv.style.backgroundColor = '';
+                    }, 300);
+                }
+                // يمكن إظهار رسالة عابرة
+                const tempNote = document.createElement('div');
+                tempNote.innerText = `👩‍🏫 تم اختيار "${opt}" - انتظر تقييم الأم`;
+                tempNote.style.fontSize = '0.8rem';
+                tempNote.style.marginTop = '8px';
+                tempNote.style.color = '#b06118';
+                wordOptionsDiv.appendChild(tempNote);
+                setTimeout(() => tempNote.remove(), 1200);
+            });
+            wordOptionsDiv.appendChild(btn);
+        });
+        
+        // 3. صور التمرين الصوتي (تنطقها الأم)
+        const listenImages = lettersDB[letter].listenImages || mainImgs.slice(0,3);
+        listeningImagesDiv.innerHTML = '';
+        listenImages.forEach(img => {
+            const card = document.createElement('div');
+            card.className = 'listen-card';
+            card.innerHTML = `<div class="emoji-big">${img[1]}</div><span>${img[0]}</span>`;
+            // يمكن للطفل النقر على الصورة لتذكير نفسه لكن الصوت من الأم
+            listeningImagesDiv.appendChild(card);
+        });
+        
+        // إعادة حالة علامة الاستماع
+        listeningMarked = false;
+        listenMarkResultSpan.innerText = '⚪ لم تضع علامة بعد';
+        listenMarkResultSpan.style.background = '#f1f1f1';
+        
+        // إعادة حقل الكتابة
+        writeInput.value = '';
+        writeMotherNote.innerHTML = '';
+    }
+    
+    // وضع علامة الاستماع
+    function markListening() {
+        if (!listeningMarked) {
+            listeningMarked = true;
+            listenMarkResultSpan.innerHTML = '✅ تم وضع العلامة! (بعد سماع الحرف من أمي)';
+            listenMarkResultSpan.style.background = '#d0f0c0';
+        } else {
+            listenMarkResultSpan.innerHTML = '🔁 سبق أن وضعت علامة لهذا الحرف. يمكنك الانتقال لحرف آخر.';
+            listenMarkResultSpan.style.background = '#fff3bf';
+        }
+    }
+    
+    // زر مراجعة الأم للكتابة
+    function motherReviewWriting() {
+        const written = writeInput.value.trim();
+        if (written === "") {
+            writeMotherNote.innerHTML = "✏️ الأم: لم يكتب الطفل شيئاً بعد، اطلبي منه كتابة الحرف.";
+        } else {
+            writeMotherNote.innerHTML = `📝 الأم: قام الطفل بكتابة "${written}". قارني ذلك بالحرف "${currentLetter}" وقومي بتصحيحه بلطف.`;
+        }
+    }
+    
+    // بناء التنقل بين الحروف
+    function buildNav() {
+        arabicAlphabet.forEach(letter => {
+            const btn = document.createElement('button');
+            btn.innerText = letter;
+            btn.classList.add('letter-btn');
+            if (letter === currentLetter) btn.classList.add('active');
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.letter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                updateLesson(letter);
+            });
+            letterNavDiv.appendChild(btn);
+        });
+    }
+    
+    // ربط الأحداث
+    markListenBtn.addEventListener('click', markListening);
+    motherReviewBtn.addEventListener('click', motherReviewWriting);
+    
+    buildNav();
+    updateLesson('أ');
+</script>
+</body>
+</html>
