@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>edutilmid – المستوى الخامس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .level-header { text-align: center; margin-bottom: 40px; }
+    .level-header h1 { font-family: 'Amiri', serif; font-size: 2.2rem; color: var(--ink, #0c1f35); }
+    .level-header p { color: var(--ink-l, #64748b); }
+    .subjects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 30px 0; }
+    .subject-card { background: var(--surface, #fff); border: 1px solid var(--border, #e2e8f0); border-radius: 24px; padding: 20px; transition: all .22s; }
+    .subject-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,.08); border-color: var(--sky, #0ea5e9); }
+    .subject-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--sky-l, #e0f2fe); padding-bottom: 8px; }
+    .section { margin: 16px 0; }
+    .section h4 { font-size: 1rem; color: var(--sky, #0ea5e9); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .item-list { list-style: none; padding: 0; }
+    .item-list li { margin-bottom: 8px; }
+    .item-list a { text-decoration: none; color: var(--ink-m, #334155); display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; background: var(--ground, #f4f7fb); border-radius: 40px; font-size: 0.9rem; transition: all .2s; }
+    .item-list a:hover { background: var(--sky-l, #e0f2fe); color: var(--sky, #0ea5e9); transform: translateX(-3px); }
+    .badge { background: var(--gold-l, #fef3c7); color: #b45309; font-size: 0.7rem; padding: 2px 10px; border-radius: 30px; }
+    @media (max-width: 700px) { .subjects-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">🏫 edutilmid <span>✦</span></a>
+      <ul class="nav-links-list">
+        <li><a href="../index.html">الرئيسية</a></li>
+        <li><a href="../pages/lessons.html">الدروس</a></li>
+        <li><a href="../pages/exercices.html">التمارين</a></li>
+        <li><a href="../pages/exams.html">الفروض</a></li>
+        <li><a href="../about.html">حول الموقع</a></li>
+        <li><a href="../contact.html">اتصل بنا</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="section-wrap">
+    <div class="level-header">
+      <h1>📒 المستوى الخامس</h1>
+      <p>دروس، تمارين، وفروض لكل المواد – استعداد للسنة الختامية من السلك الابتدائي</p>
+    </div>
+
+    <div class="subjects-grid">
+      <!-- الرياضيات -->
+      <div class="subject-card">
+        <div class="subject-title">🔢 الرياضيات</div>
+        <div class="section">
+          <h4>📖 دروس المستوى</h4>
+          <ul class="item-list">
+            <li><a href="../subjects/math.html">📘 العمليات على الأعداد العشرية (ضرب وقسمة) <span class="badge">درس</span></a></li>
+            <li><a href="../subjects/math.html">📘 النسبة المئوية والتطبيقات <span class="badge">درس</span></a></li>
+            <li><a href="../subjects/math.html">📘 حساب المساحات (المثلث، الدائرة) <span class="badge">درس</span></a></li>
+            <li><a href="../subjects/math.html">📘 المقياس والتناسب <span class="badge">درس</span></a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <h4>✏️ تمارين</h4>
+          <ul class="item-list">
+            <li><a href="../pages/exercice-5.html#math">تمرين الأعداد والعمليات <span class="badge">PDF</span></a></li>
+            <li><a href="../pages/exercice-5.html#math">تمرين النسبة المئوية والمساحات <span class="badge">PDF</span></a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <h4>📋 فروض</h4>
+          <ul class="item-list">
+            <li><a href="../pages/exam-5.html#math">الفرض المحروس الأول <span class="badge">PDF</span></a></li>
+            <li><a href="../pages/exam-5.html#math">الفرض المحروس الثاني <span class="badge">PDF</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- اللغة العربية -->
+      <div class="subject-card">
+        <div class="subject-title">🖊️ اللغة العربية</div>
+        <div class="section">
+          <h4>📖 دروس المستوى</h4>
+          <ul class="item-list">
+            <li><a href="../subjects/arabic.html">📘 أسلوب الشرط والتمني <span class="badge">درس</span></a></li>
+            <li><a href="../subjects/arabic.html">📘 المبتدأ والخبر (أنواعهما) <span class="badge">درس</span></a></li>
+            <li><a href="../subjects/arabic.html">📘 نص سردي وتحليله <span class="badge">درس</span></a></li>
+            <li><a href="../subjects/arabic.html">📘 إنشاء قصير (التعبير الوظيفي) <span class="badge">درس</span></a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <h4>✏️ تمارين</h4>
+          <ul class="item-list">
+            <li><a href="../pages/exercice-5.html#arabic">تمارين في النحو والبلاغة <span class="badge">PDF</span></a></li>
+            <li><a href="../pages/exercice-5.html#arabic">تمارين في التعبير الكتابي <span class="badge">PDF</span></a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <h4>📋 فروض</h4>
+          <ul class="item-list">
+            <li><a href="../pages/exam-5.html#arabic">الفرض الأول في القواعد <span class="badge">PDF</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- النشاط العلمي -->
+      <div class="subject-card">
+        <div class="subject-title">🌱 النشاط العلمي</div>
+        <div class="section">
+          <h4>📖 دروس المستوى</h4>
+          <ul class="item-list">
+            <li><a href="../subjects/science.html">📘 النظام الشمسي والكواكب <span class="badge">درس</span></a></li>
+            <li><a href="../subjects/science.html">📘 مصادر الطاقة (المتجددة وغير المتجددة) <span class="badge">درس</span></a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <h4>✏️ تمارين</h4>
+          <ul class="item-list">
+            <li><a href="../pages/exercice-5.html#science">تمارين النظام الشمسي <span class="badge">PDF</span></a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <h4>📋 فروض</h4>
+          <ul class="item-list">
+            <li><a href="../pages/exam-5.html#science">الفرض الأول – الفضاء والطاقة <span class="badge">PDF</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- اللغة الفرنسية -->
+      <div class="subject-card">
+        <div class="subject-title">🇫🇷 Français</div>
+        <div class="section">
+          <h4>📖 Cours</h4>
+          <ul class="item-list">
+            <li><a href="../subjects/french.html">📘 Le passé composé (avec être et avoir) <span class="badge">leçon</span></a></li>
+            <li><a href="../subjects/french.html">📘 Les pronoms compléments (le, la, les) <span class="badge">leçon</span></a></li>
+            <li><a href="../subjects/french.html">📘 Production écrite : rédiger une lettre <span class="badge">leçon</span></a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <h4>✏️ Exercices</h4>
+          <ul class="item-list">
+            <li><a href="../pages/exercice-5.html#french">Exercices de conjugaison (passé composé) <span class="badge">PDF</span></a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <h4>📋 Examens</h4>
+          <ul class="item-list">
+            <li><a href="../pages/exam-5.html#french">Test de grammaire <span class="badge">PDF</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- التربية الإسلامية -->
+      <div class="subject-card">
+        <div class="subject-title">📿 التربية الإسلامية</div>
+        <div class="section">
+          <h4>📖 دروس المستوى</h4>
+          <ul class="item-list">
+            <li><a href="../subjects/islamic.html">📘 سورة الجمعة (الآيات 9-10) والعمل يوم الجمعة <span class="badge">درس</span></a></li>
+            <li><a href="../subjects/islamic.html">📘 أحكام التجويد (المد، الغنة) <span class="badge">درس</span></a></li>
+            <li><a href="../subjects/islamic.html">📘 سيرة النبي صلى الله عليه وسلم (من الهجرة إلى الوفاة) <span class="badge">درس</span></a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <h4>✏️ تمارين</h4>
+          <ul class="item-list">
+            <li><a href="../pages/exercice-5.html#islamic">تمارين في السيرة والتجويد <span class="badge">PDF</span></a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <h4>📋 فروض</h4>
+          <ul class="item-list">
+            <li><a href="../pages/exam-5.html#islamic">الفرض الأول في التربية الإسلامية <span class="badge">PDF</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="f-logo">🏫 edutilmid <span>✦</span></div>
+      <p class="f-desc">منصة edutilmid — تعليمية مجانية للمرحلة الابتدائية المغربية</p>
+      <div class="f-links">
+        <a href="../index.html">الرئيسية</a>
+        <a href="../pages/lessons.html">الدروس</a>
+        <a href="../pages/exercices.html">التمارين</a>
+        <a href="../pages/exams.html">الفروض</a>
+        <a href="../about.html">حول الموقع</a>
+        <a href="../contact.html">اتصل بنا</a>
+      </div>
+      <p class="f-copy">© 2026 edutilmid — جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

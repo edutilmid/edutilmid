@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>📘 العد من 1 إلى 5 - تفاعلي للأطفال</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fef3e2 0%, #ffe6d0 100%);
+            font-family: 'Segoe UI', 'Tahoma', 'Traditional Arabic', 'Comic Neue', cursive;
+            padding: 12px;
+            min-height: 100vh;
+        }
+
+        /* الحاوية الرئيسية */
+        .lesson-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fffef7;
+            border-radius: 40px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* قسم الأم */
+        .mom-header {
+            background: #2b5e3b;
+            padding: 20px 15px;
+            text-align: center;
+            color: white;
+        }
+        .mom-header h1 {
+            font-size: 1.6rem;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .mom-badge {
+            background: #f9b81b;
+            color: #2b5e3b;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        .tips {
+            background: #fff1e0;
+            border-right: 6px solid #f9b81b;
+            margin: 16px 18px;
+            padding: 14px 18px;
+            border-radius: 28px;
+            font-size: 0.85rem;
+            color: #5a3e1b;
+        }
+
+        /* محتوى الدرس */
+        .content {
+            padding: 10px 18px 30px;
+        }
+        .section {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 18px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+            border: 1px solid #ffe0b5;
+        }
+        .section h2 {
+            font-size: 1.7rem;
+            color: #cf7a1f;
+            border-right: 8px solid #f9b81b;
+            padding-right: 14px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* بطاقات الأعداد */
+        .num-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+        .num-card {
+            background: #fef1e0;
+            width: 85px;
+            text-align: center;
+            padding: 12px 5px;
+            border-radius: 28px;
+        }
+        .digit {
+            font-size: 2.4rem;
+            font-weight: bold;
+            color: #c75119;
+        }
+        .word {
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .dots {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+
+        /* أمثلة العد - الرموز بشكل عمودي */
+        .examples-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .example-card {
+            background: #faf3e8;
+            border-radius: 32px;
+            padding: 12px;
+            width: 100px;
+            text-align: center;
+        }
+        /* الرموز مكدسة عمودياً (كل رمز في سطر) */
+        .vertical-icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+        .vertical-icons span {
+            display: block;
+        }
+        .example-number {
+            background: #fdca7a;
+            border-radius: 50px;
+            padding: 4px 10px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* التمارين التفاعلية */
+        .quiz-block {
+            background: #fef6ec;
+            border-radius: 32px;
+            padding: 16px;
+        }
+        .question-card {
+            background: white;
+            border-radius: 28px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        /* عرض الرموز عمودياً داخل الأسئلة أيضًا */
+        .vertical-sample {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+            font-size: 1.8rem;
+            background: #fcf3e6;
+            padding: 10px;
+            border-radius: 24px;
+            margin: 8px 0;
+        }
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 12px 0;
+        }
+        .option-btn {
+            background: #ffe2c1;
+            border: none;
+            padding: 8px 18px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        .option-btn:active {
+            transform: scale(0.96);
+        }
+        .feedback {
+            margin-top: 8px;
+            padding: 6px;
+            border-radius: 28px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .correct-feedback {
+            background: #d4f0da;
+            color: #1f6e2e;
+        }
+        .wrong-feedback {
+            background: #ffe0d4;
+            color: #c0391c;
+        }
+
+        /* التسلسل */
+        .seq-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 12px 0;
+            font-size: 1.6rem;
+        }
+        .seq-number {
+            background: #fae7cd;
+            padding: 5px 16px;
+            border-radius: 60px;
+        }
+        .seq-blank {
+            background: #fdce8e;
+            padding: 5px 18px;
+            border-radius: 60px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* النجاح النهائي */
+        .congrats {
+            background: #c8e6d9;
+            text-align: center;
+            padding: 14px;
+            border-radius: 40px;
+            font-weight: bold;
+            display: none;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: #2b5e3b;
+            color: #ffefd0;
+            text-align: center;
+            padding: 14px;
+            font-size: 0.75rem;
+        }
+
+        /* تحسينات للهاتف */
+        @media (max-width: 550px) {
+            body {
+                padding: 8px;
+            }
+            .section h2 {
+                font-size: 1.4rem;
+            }
+            .num-card {
+                width: 70px;
+            }
+            .digit {
+                font-size: 2rem;
+            }
+            .example-card {
+                width: 80px;
+            }
+            .vertical-icons {
+                font-size: 1.6rem;
+                gap: 4px;
+            }
+            .question-text {
+                font-size: 1rem;
+            }
+            .option-btn {
+                padding: 6px 14px;
+                font-size: 1.1rem;
+            }
+            .seq-row {
+                font-size: 1.3rem;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="lesson-container">
+    <div class="mom-header">
+        <h1>👩‍👧 تعلم الأعداد من 1 إلى 5</h1>
+        <div class="mom-badge">⭐ دليل الأم والطفل ⭐</div>
+    </div>
+    <div class="tips">
+        💡 <strong>نصائح للأم:</strong> اجلسي مع طفلك، شجعيه على النقر بنفسه. اطلبي منه أن يعدّ الأصابع. التمارين تفاعلية وتعطيه تغذية راجعة فورية. للطباعة كـ PDF: Ctrl+P.
+    </div>
+    <div class="content">
+        <!-- جدول الأعداد -->
+        <div class="section">
+            <h2>🔢 الأعداد من 1 إلى 5</h2>
+            <div class="num-grid" id="numbersGrid"></div>
+        </div>
+
+        <!-- أمثلة العد (الرموز عمودية) -->
+        <div class="section">
+            <h2>🍎 لنعد عمودياً</h2>
+            <div class="examples-grid" id="examplesVertical"></div>
+        </div>
+
+        <!-- تمرين 1: اختر العدد الصحيح (مع عرض عمودي) -->
+        <div class="section">
+            <h2>🎈 تمرين 1: كم العدد؟</h2>
+            <div class="quiz-block" id="quizPick"></div>
+        </div>
+
+        <!-- تمرين 2: أكمل التسلسل -->
+        <div class="section">
+            <h2>🧩 تمرين 2: التسلسل</h2>
+            <div class="quiz-block" id="quizSequence"></div>
+        </div>
+
+        <!-- تمرين 3: عد الحيوانات (عمودي) -->
+        <div class="section">
+            <h2>🐘 تمرين 3: كم حيواناً؟</h2>
+            <div class="quiz-block" id="quizAnimals"></div>
+        </div>
+
+        <div id="finalCongrats" class="congrats">🏆 أحسنت! 🏆 أتقنت الأعداد من 1 إلى 5</div>
+    </div>
+    <footer>📱 تدريب تفاعلي - عدّ بالترتيب العمودي لسهولة التعلم</footer>
+</div>
+
+<script>
+    // ------------------- عرض الأعداد -------------------
+    const numbersData = [
+        { num: 1, word: "واحد", dots: "•" },
+        { num: 2, word: "اثنان", dots: "••" },
+        { num: 3, word: "ثلاثة", dots: "•••" },
+        { num: 4, word: "أربعة", dots: "••••" },
+        { num: 5, word: "خمسة", dots: "•••••" }
+    ];
+    function renderNumbers() {
+        const container = document.getElementById('numbersGrid');
+        if (!container) return;
+        container.innerHTML = '';
+        numbersData.forEach(n => {
+            const card = document.createElement('div');
+            card.className = 'num-card';
+            card.innerHTML = `
+                <div class="digit">${n.num}</div>
+                <div class="word">${n.word}</div>
+                <div class="dots">${n.dots}</div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // ------------------- أمثلة العد (عرض عمودي) -------------------
+    const verticalExamples = [
+        { label: "تفاحة", emojis: ["🍎"], answer: 1 },
+        { label: "قطتان", emojis: ["🐱", "🐱"], answer: 2 },
+        { label: "ثلاث نجوم", emojis: ["⭐", "⭐", "⭐"], answer: 3 },
+        { label: "أربعة أقلام", emojis: ["✏️", "✏️", "✏️", "✏️"], answer: 4 },
+        { label: "خمس دُمى", emojis: ["🧸", "🧸", "🧸", "🧸", "🧸"], answer: 5 }
+    ];
+    function renderVerticalExamples() {
+        const container = document.getElementById('examplesVertical');
+        if (!container) return;
+        container.innerHTML = '';
+        verticalExamples.forEach(ex => {
+            const card = document.createElement('div');
+            card.className = 'example-card';
+            // عرض الرموز بشكل عمودي
+            const iconsDiv = document.createElement('div');
+            iconsDiv.className = 'vertical-icons';
+            ex.emojis.forEach(emoji => {
+                const span = document.createElement('span');
+                span.textContent = emoji;
+                iconsDiv.appendChild(span);
+            });
+            const numberSpan = document.createElement('div');
+            numberSpan.className = 'example-number';
+            numberSpan.textContent = ex.answer;
+            card.appendChild(iconsDiv);
+            card.appendChild(numberSpan);
+            container.appendChild(card);
+        });
+    }
+
+    // ------------------- تمرين 1: اختر العدد (معرّض عمودياً) -------------------
+    const pickQuestions = [
+        { display: ["🍎"], correct: 1, options: [1,2,3] },
+        { display: ["🐶", "🐶"], correct: 2, options: [1,2,3,4] },
+        { display: ["✏️", "✏️", "✏️"], correct: 3, options: [2,3,4,5] },
+        { display: ["📚", "📚", "📚", "📚"], correct: 4, options: [3,4,5,2] },
+        { display: ["🌟", "🌟", "🌟", "🌟", "🌟"], correct: 5, options: [4,5,3,6] }
+    ];
+    let pickStatus = [false, false, false, false, false];
+    function renderPickQuiz() {
+        const container = document.getElementById('quizPick');
+        if (!container) return;
+        container.innerHTML = '';
+        pickQuestions.forEach((q, idx) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'question-card';
+            // عرض الرموز عمودياً
+            const iconsWrapper = document.createElement('div');
+            iconsWrapper.className = 'vertical-sample';
+            q.display.forEach(icon => {
+                const ic = document.createElement('span');
+                ic.textContent = icon;
+                iconsWrapper.appendChild(ic);
+            });
+            const questionP = document.createElement('div');
+            questionP.className = 'question-text';
+            questionP.innerHTML = '🔢 كم عدد الأشياء؟';
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.textContent = opt;
+                btn.classList.add('option-btn');
+                btn.addEventListener('click', () => handlePick(idx, opt, q.correct));
+                optionsDiv.appendChild(btn);
+            });
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `pickFb-${idx}`;
+            qDiv.appendChild(iconsWrapper);
+            qDiv.appendChild(questionP);
+            qDiv.appendChild(optionsDiv);
+            qDiv.appendChild(fbDiv);
+            container.appendChild(qDiv);
+        });
+    }
+    function handlePick(idx, selected, correct) {
+        const fbDiv = document.getElementById(`pickFb-${idx}`);
+        if (pickStatus[idx]) {
+            fbDiv.innerHTML = '✅ سبق الإجابة الصحيحة!';
+            fbDiv.className = 'feedback correct-feedback';
+            return;
+        }
+        if (selected == correct) {
+            fbDiv.innerHTML = `🎉 صحيح! العدد ${correct} ممتاز 🎉`;
+            fbDiv.className = 'feedback correct-feedback';
+            pickStatus[idx] = true;
+        } else {
+            fbDiv.innerHTML = `😊 ليس ${selected}، الصحيح هو ${correct}. حاول مرة أخرى.`;
+            fbDiv.className = 'feedback wrong-feedback';
+        }
+        checkAllDone();
+    }
+
+    // ------------------- تمرين 2: التسلسل -------------------
+    const seqQuestions = [
+        { seq: ["_", 1, 2, 3, 4], correct: 0, desc: "أكمل العدد الناقص:" },
+        { seq: [1, "_", 3, 4, 5], correct: 2, desc: "ما العدد بين 1 و 3؟" },
+        { seq: [1, 2, 3, 4, "_"], correct: 5, desc: "العدد بعد 4 هو:" }
+    ];
+    let seqStatus = [false, false, false];
+    function renderSequenceQuiz() {
+        const container = document.getElementById('quizSequence');
+        if (!container) return;
+        container.innerHTML = '';
+        seqQuestions.forEach((item, idx) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'question-card';
+            const descP = document.createElement('div');
+            descP.className = 'question-text';
+            descP.textContent = item.desc;
+            qDiv.appendChild(descP);
+            const seqDiv = document.createElement('div');
+            seqDiv.className = 'seq-row';
+            item.seq.forEach((val, pos) => {
+                if (val === "_") {
+                    const blankSpan = document.createElement('span');
+                    blankSpan.className = 'seq-blank';
+                    blankSpan.textContent = "___";
+                    blankSpan.addEventListener('click', () => showSeqPicker(idx, item.correct));
+                    seqDiv.appendChild(blankSpan);
+                } else {
+                    const numSpan = document.createElement('span');
+                    numSpan.className = 'seq-number';
+                    numSpan.textContent = val;
+                    seqDiv.appendChild(numSpan);
+                }
+            });
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `seqFb-${idx}`;
+            qDiv.appendChild(seqDiv);
+            qDiv.appendChild(fbDiv);
+            container.appendChild(qDiv);
+        });
+    }
+    function showSeqPicker(seqIdx, correctVal) {
+        if (seqStatus[seqIdx]) {
+            const fb = document.getElementById(`seqFb-${seqIdx}`);
+            fb.innerHTML = '✅ تم حل هذا السابق!';
+            fb.className = 'feedback correct-feedback';
+            return;
+        }
+        const pickerOverlay = document.createElement('div');
+        pickerOverlay.style.position = 'fixed';
+        pickerOverlay.style.bottom = '30%';
+        pickerOverlay.style.left = '50%';
+        pickerOverlay.style.transform = 'translateX(-50%)';
+        pickerOverlay.style.backgroundColor = '#fff5e8';
+        pickerOverlay.style.border = '4px solid #f9b81b';
+        pickerOverlay.style.borderRadius = '48px';
+        pickerOverlay.style.padding = '18px';
+        pickerOverlay.style.zIndex = '1000';
+        pickerOverlay.style.boxShadow = '0 10px 25px rgba(0,0,0,0.2)';
+        pickerOverlay.style.textAlign = 'center';
+        pickerOverlay.innerHTML = `
+            <div style="font-weight:bold;margin-bottom:12px;">اختر العدد الصحيح</div>
+            <div id="pickerOptionsSeq" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"></div>
+            <button id="closeSeqPicker" style="margin-top:15px;background:#e76f1c;border:none;padding:6px 20px;border-radius:40px;color:white;">إغلاق</button>
+        `;
+        document.body.appendChild(pickerOverlay);
+        const optsDiv = pickerOverlay.querySelector('#pickerOptionsSeq');
+        for (let i = 0; i <= 5; i++) {
+            const btn = document.createElement('button');
+            btn.textContent = i;
+            btn.classList.add('option-btn');
+            btn.addEventListener('click', () => {
+                if (seqStatus[seqIdx]) {
+                    document.body.removeChild(pickerOverlay);
+                    return;
+                }
+                const fbDiv = document.getElementById(`seqFb-${seqIdx}`);
+                if (i == correctVal) {
+                    seqStatus[seqIdx] = true;
+                    fbDiv.innerHTML = `✅ صحيح! العدد ${correctVal} رائع 🌟`;
+                    fbDiv.className = 'feedback correct-feedback';
+                } else {
+                    fbDiv.innerHTML = `❌ ليس ${i}، الصحيح ${correctVal}. حاول مرة أخرى.`;
+                    fbDiv.className = 'feedback wrong-feedback';
+                }
+                document.body.removeChild(pickerOverlay);
+                checkAllDone();
+            });
+            optsDiv.appendChild(btn);
+        }
+        document.getElementById('closeSeqPicker').addEventListener('click', () => document.body.removeChild(pickerOverlay));
+    }
+
+    // ------------------- تمرين 3: عد الحيوانات (عمودي) -------------------
+    const animalData = [
+        { emojis: ["🐧"], correct: 1, options: [1,2,3] },
+        { emojis: ["🐱", "🐱"], correct: 2, options: [1,2,3] },
+        { emojis: ["🐥", "🐥", "🐥"], correct: 3, options: [2,3,4] },
+        { emojis: ["🐟", "🐟", "🐟", "🐟"], correct: 4, options: [3,4,5] },
+        { emojis: ["🐒", "🐒", "🐒", "🐒", "🐒"], correct: 5, options: [4,5,3] }
+    ];
+    let animalStatus = [false, false, false, false, false];
+    function renderAnimalQuiz() {
+        const container = document.getElementById('quizAnimals');
+        if (!container) return;
+        container.innerHTML = '';
+        animalData.forEach((item, idx) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'question-card';
+            const iconsWrapper = document.createElement('div');
+            iconsWrapper.className = 'vertical-sample';
+            item.emojis.forEach(em => {
+                const sp = document.createElement('span');
+                sp.textContent = em;
+                iconsWrapper.appendChild(sp);
+            });
+            const questionText = document.createElement('div');
+            questionText.className = 'question-text';
+            questionText.textContent = '🐾 كم عدد الحيوانات؟';
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'options';
+            item.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.textContent = opt;
+                btn.classList.add('option-btn');
+                btn.addEventListener('click', () => handleAnimal(idx, opt, item.correct));
+                optsDiv.appendChild(btn);
+            });
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `animalFb-${idx}`;
+            qDiv.appendChild(iconsWrapper);
+            qDiv.appendChild(questionText);
+            qDiv.appendChild(optsDiv);
+            qDiv.appendChild(fbDiv);
+            container.appendChild(qDiv);
+        });
+    }
+    function handleAnimal(idx, selected, correct) {
+        const fbDiv = document.getElementById(`animalFb-${idx}`);
+        if (animalStatus[idx]) {
+            fbDiv.innerHTML = '✅ سبق أن أجبت بشكل صحيح!';
+            fbDiv.className = 'feedback correct-feedback';
+            return;
+        }
+        if (selected == correct) {
+            animalStatus[idx] = true;
+            fbDiv.innerHTML = `🎉 ممتاز! ${correct} صحيح. أحسنت 🎉`;
+            fbDiv.className = 'feedback correct-feedback';
+        } else {
+            fbDiv.innerHTML = `😲 لا، الإجابة الصحيحة هي ${correct}. حاول مجدداً.`;
+            fbDiv.className = 'feedback wrong-feedback';
+        }
+        checkAllDone();
+    }
+
+    function checkAllDone() {
+        const allPick = pickStatus.every(v => v === true);
+        const allSeq = seqStatus.every(v => v === true);
+        const allAnimal = animalStatus.every(v => v === true);
+        const congratsDiv = document.getElementById('finalCongrats');
+        if (allPick && allSeq && allAnimal) {
+            congratsDiv.style.display = 'block';
+        } else {
+            congratsDiv.style.display = 'none';
+        }
+    }
+
+    // بدء التشغيل
+    renderNumbers();
+    renderVerticalExamples();
+    renderPickQuiz();
+    renderSequenceQuiz();
+    renderAnimalQuiz();
+</script>
+</body>
+</html>

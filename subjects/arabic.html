@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>edutilmid – اللغة العربية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* تنسيقات احتياطية لضمان ظهور العناصر */
+    .lvl-card {
+      background: var(--surface, #ffffff);
+      border: 1px solid var(--border, #e2e8f0);
+      border-radius: 16px;
+      padding: 24px 12px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transition: all .22s;
+      display: block;
+    }
+    .lvl-card:hover {
+      border-color: var(--sky, #0ea5e9);
+      background: var(--sky-l, #e0f2fe);
+      transform: translateY(-3px);
+    }
+    .lvl-n {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--sky, #0ea5e9);
+      font-family: 'Amiri', serif;
+    }
+    .lvl-l {
+      font-size: .75rem;
+      color: var(--ink-l, #64748b);
+      margin-top: 4px;
+    }
+    .subject-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .subject-header h1 {
+      font-family: 'Amiri', serif;
+      font-size: 2.2rem;
+      color: var(--ink, #0c1f35);
+    }
+    .subject-header p {
+      color: var(--ink-l, #64748b);
+      margin-top: 8px;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      margin: 30px 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--sky, #0ea5e9);
+      display: inline-block;
+    }
+    .lessons-list, .exercises-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    .lesson-item, .exercise-item {
+      background: var(--surface, #ffffff);
+      border: 1px solid var(--border, #e2e8f0);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all .22s;
+    }
+    .lesson-item:hover, .exercise-item:hover {
+      border-color: var(--sky, #0ea5e9);
+      transform: translateX(-5px);
+    }
+    .lesson-link, .exercise-link {
+      background: var(--sky-l, #e0f2fe);
+      color: var(--sky-d, #0284c7);
+      padding: 6px 16px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all .22s;
+    }
+    .lesson-link:hover, .exercise-link:hover {
+      background: var(--sky, #0ea5e9);
+      color: white;
+    }
+    .levels-grid {
+      max-width: 800px;
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .helper-note {
+      background: var(--gold-l, #fef3c7);
+      border-right: 4px solid var(--gold, #f59e0b);
+      padding: 15px 20px;
+      border-radius: 16px;
+      margin: 30px auto;
+      max-width: 800px;
+    }
+    @media (max-width: 600px) {
+      .levels-grid { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">🏫 edutilmid <span>✦</span></a>
+      <ul class="nav-links-list">
+        <li><a href="../index.html">الرئيسية</a></li>
+        <li><a href="../pages/lessons.html">الدروس</a></li>
+        <li><a href="../pages/exercices.html">التمارين</a></li>
+        <li><a href="../pages/exams.html">الفروض</a></li>
+        <li><a href="../about.html">حول الموقع</a></li>
+        <li><a href="../contact.html">اتصل بنا</a></li>
+        <li><a href="../pages/lessons.html" class="nav-cta">ابدأ التعلّم</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="section-wrap">
+    <div class="subject-header">
+      <h1>🖊️ اللغة العربية</h1>
+      <p>قراءة، كتابة، قواعد – دروس وتمارين لجميع المستويات</p>
+    </div>
+
+    <!-- دروس القراءة -->
+    <div style="text-align: center;">
+      <div class="section-title">📖 القراءة</div>
+    </div>
+    <div class="lessons-list">
+      <div class="lesson-item"><span>📘 حروف الهجاء (المستوى الأول)</span><a href="../levels/level-1.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>📘 كلمات وجمل قصيرة (المستوى الثاني)</span><a href="../levels/level-2.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>📘 نص قراءة: المدرسة (المستوى الثالث)</span><a href="../levels/level-3.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>📘 نص قراءة: الوطن (المستوى الرابع)</span><a href="../levels/level-4.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>📘 قصة قصيرة: الأمانة (المستوى الخامس)</span><a href="../levels/level-5.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>📘 نص شعري: العلم نور (المستوى السادس)</span><a href="../levels/level-6.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+    </div>
+
+    <!-- دروس الكتابة -->
+    <div style="text-align: center;">
+      <div class="section-title">✍️ الكتابة</div>
+    </div>
+    <div class="lessons-list">
+      <div class="lesson-item"><span>✏️ تدريب على رسم الحروف (المستوى الأول)</span><a href="../levels/level-1.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>✏️ كتابة كلمات بسيطة (المستوى الثاني)</span><a href="../levels/level-2.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>✏️ كتابة جمل مفيدة (المستوى الثالث)</span><a href="../levels/level-3.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>✏️ التعبير الكتابي: وصف (المستوى الرابع)</span><a href="../levels/level-4.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>✏️ كتابة رسالة قصيرة (المستوى الخامس)</span><a href="../levels/level-5.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>✏️ إنشاء متكامل (المستوى السادس)</span><a href="../levels/level-6.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+    </div>
+
+    <!-- دروس القواعد -->
+    <div style="text-align: center;">
+      <div class="section-title">📚 القواعد</div>
+    </div>
+    <div class="lessons-list">
+      <div class="lesson-item"><span>📖 أنواع الكلمة: اسم، فعل، حرف (المستوى الأول)</span><a href="../levels/level-1.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>📖 المذكر والمؤنث (المستوى الثاني)</span><a href="../levels/level-2.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>📖 الجملة الاسمية والفعلية (المستوى الثالث)</span><a href="../levels/level-3.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>📖 الفعل الماضي والمضارع والأمر (المستوى الرابع)</span><a href="../levels/level-4.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>📖 المفعول به والفاعل (المستوى الخامس)</span><a href="../levels/level-5.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+      <div class="lesson-item"><span>📖 أساليب الاستفهام والنداء (المستوى السادس)</span><a href="../levels/level-6.html#arabic" class="lesson-link">اطلع على الدرس</a></div>
+    </div>
+
+    <!-- تمارين تطبيقية -->
+    <div style="text-align: center;">
+      <div class="section-title">✏️ تمارين تطبيقية</div>
+    </div>
+    <div class="exercises-list">
+      <div class="exercise-item"><span>📝 تمارين في القراءة والفهم (المستوى الأول)</span><a href="../pages/under-construction.html" class="exercise-link">حل التمارين</a></div>
+      <div class="exercise-item"><span>📝 تمارين في الكتابة والإملاء (المستوى الثاني)</span><a href="../pages/under-construction.html" class="exercise-link">حل التمارين</a></div>
+      <div class="exercise-item"><span>📝 تمارين في القواعد والصرف (المستوى الثالث)</span><a href="../pages/under-construction.html" class="exercise-link">حل التمارين</a></div>
+      <div class="exercise-item"><span>📝 تمارين شاملة (المستوى الرابع)</span><a href="../pages/under-construction.html" class="exercise-link">حل التمارين</a></div>
+      <div class="exercise-item"><span>📝 تمارين تركيبية (المستوى الخامس)</span><a href="../pages/under-construction.html" class="exercise-link">حل التمارين</a></div>
+      <div class="exercise-item"><span>📝 امتحانات تطبيقية (المستوى السادس)</span><a href="../pages/under-construction.html" class="exercise-link">حل التمارين</a></div>
+    </div>
+
+    <!-- روابط للمستويات -->
+    <div style="text-align: center;">
+      <div class="section-title">🎓 المستويات الدراسية</div>
+    </div>
+    <div class="levels-grid">
+      <a href="../levels/level-1.html" class="lvl-card"><div class="lvl-n">1</div><div class="lvl-l">المستوى الأول</div></a>
+      <a href="../levels/level-2.html" class="lvl-card"><div class="lvl-n">2</div><div class="lvl-l">المستوى الثاني</div></a>
+      <a href="../levels/level-3.html" class="lvl-card"><div class="lvl-n">3</div><div class="lvl-l">المستوى الثالث</div></a>
+      <a href="../levels/level-4.html" class="lvl-card"><div class="lvl-n">4</div><div class="lvl-l">المستوى الرابع</div></a>
+      <a href="../levels/level-5.html" class="lvl-card"><div class="lvl-n">5</div><div class="lvl-l">المستوى الخامس</div></a>
+      <a href="../levels/level-6.html" class="lvl-card"><div class="lvl-n">6</div><div class="lvl-l">المستوى السادس</div></a>
+    </div>
+
+    <div class="helper-note">
+      💡 يمكنك أيضاً الوصول إلى جميع دروس اللغة العربية من خلال اختيار مستواك أعلاه، أو تصفح <a href="../pages/lessons.html">فهرس الدروس</a> أو <a href="../pages/exercices.html">فهرس التمارين</a>.
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="f-logo">🏫 edutilmid <span>✦</span></div>
+      <p class="f-desc">منصة edutilmid — تعليمية مجانية للمرحلة الابتدائية المغربية</p>
+      <div class="f-links">
+        <a href="../index.html">الرئيسية</a>
+        <a href="../pages/lessons.html">الدروس</a>
+        <a href="../pages/exercices.html">التمارين</a>
+        <a href="../pages/exams.html">الفروض</a>
+        <a href="../about.html">حول الموقع</a>
+        <a href="../contact.html">اتصل بنا</a>
+      </div>
+      <p class="f-copy">© 2026 edutilmid — جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

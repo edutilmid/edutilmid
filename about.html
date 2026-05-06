@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>edutilmid – حول الموقع</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* إضافات خاصة بصفحة about */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-text h3 {
+      font-size: 1.5rem;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .about-text p {
+      color: var(--ink-l);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 24px;
+    }
+    .about-stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 16px;
+      text-align: center;
+    }
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .goal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 20px;
+      text-align: center;
+      transition: var(--trans);
+    }
+    .goal-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--sky);
+    }
+    .contact-card {
+      max-width: 500px;
+      margin: 0 auto;
+      background: var(--surface);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    @media(max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .goals-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🏫 edutilmid <span>✦</span></a>
+      <ul class="nav-links-list">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="pages/lessons.html">الدروس</a></li>
+        <li><a href="pages/exercices.html">التمارين</a></li>
+        <li><a href="pages/exams.html">الفروض</a></li>
+        <li><a href="about.html">حول الموقع</a></li>
+        <li><a href="contact.html">اتصل بنا</a></li>
+        <li><a href="pages/lessons.html" class="nav-cta">ابدأ التعلّم</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-header" style="background: linear-gradient(135deg, #0c1f35, #1e3a5f); color: white; padding: 60px 32px; text-align: center;">
+    <h1 style="font-family: 'Amiri', serif; font-size: 2.5rem;">📖 حول منصة edutilmid</h1>
+    <p style="font-size: 1.1rem; opacity: 0.85;">تعرف على قصتنا، رسالتنا، وأهدافنا</p>
+  </div>
+
+  <div class="band-white">
+    <div class="section-wrap">
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>منصة edutilmid</h3>
+          <p>منصة edutilmid هي منصة تعليمية مغربية مجانية تهدف إلى تقديم محتوى تعليمي متميز للتلاميذ في المرحلة الابتدائية. نؤمن بأن التعليم الجيد هو حق أساسي لكل طفل، ونسعى لإتاحة الفرصة للجميع للتعلم والتفوق.</p>
+          <p>نقدم دروساً مبسطة، تمارين تطبيقية، وامتحانات نموذجية لجميع المواد الدراسية من المستوى الأول إلى المستوى السادس. كما نوفر فضاء خاصاً للأساتذة يحتوي على المستجدات التربوية، الوثائق الرسمية، والجذاذات.</p>
+        </div>
+        <div>
+          <div class="about-stats">
+            <div class="about-stat-card"><div class="stat-n">500+</div><div class="stat-l">درس منشور</div></div>
+            <div class="about-stat-card"><div class="stat-n">1200+</div><div class="stat-l">تمرين وتطبيق</div></div>
+            <div class="about-stat-card"><div class="stat-n">6</div><div class="stat-l">مستويات دراسية</div></div>
+            <div class="about-stat-card"><div class="stat-n">10000+</div><div class="stat-l">تلميذ مستفيد</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="section-wrap">
+      <div class="sec-head">
+        <h2>🎯 أهدافنا</h2>
+        <p>ما نسعى لتحقيقه من خلال منصتنا</p>
+      </div>
+      <div class="goals-grid">
+        <div class="goal-card"><div class="goal-icon" style="font-size: 48px;">📚</div><h3>تعليم مجاني</h3><p>توفير محتوى تعليمي عالي الجودة مجاناً للجميع</p></div>
+        <div class="goal-card"><div class="goal-icon" style="font-size: 48px;">🎓</div><h3>التميز الدراسي</h3><p>مساعدة التلاميذ على تحقيق نتائج متميزة</p></div>
+        <div class="goal-card"><div class="goal-icon" style="font-size: 48px;">👨‍🏫</div><h3>دعم الأساتذة</h3><p>توفير موارد تعليمية متكاملة للأساتذة</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band-white">
+    <div class="section-wrap">
+      <div class="sec-head">
+        <h2>📬 تواصل معنا</h2>
+        <p>نرحب بأسئلتكم واقتراحاتكم</p>
+      </div>
+      <div class="contact-card">
+        <div style="font-size: 52px;">📧</div>
+        <h3>راسلنا على البريد الإلكتروني</h3>
+        <a href="mailto:achaabod@gmail.com" style="background: var(--sky-l); padding: 12px 24px; border-radius: 40px; text-decoration: none; color: var(--sky-d); font-weight: 600; display: inline-block; margin-top: 16px;">achaabod@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="f-logo">🏫 edutilmid <span>✦</span></div>
+      <p class="f-desc">منصة edutilmid — تعليمية مجانية للمرحلة الابتدائية المغربية</p>
+      <div class="f-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="pages/lessons.html">الدروس</a>
+        <a href="pages/exercices.html">التمارين</a>
+        <a href="pages/exams.html">الفروض</a>
+        <a href="about.html">حول الموقع</a>
+        <a href="contact.html">اتصل بنا</a>
+      </div>
+      <p class="f-copy">© 2026 edutilmid — جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
